@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
-import Typography from '@material-ui/core/Typography';
+import Typography, { TypographyProps } from '@material-ui/core/Typography';
 
-interface CustumLinkInterface {
+interface CustumLinkInterface extends TypographyProps {
   text: string;
   path: string;
 }
@@ -11,17 +11,21 @@ interface CustumLinkInterface {
 const useStyles = makeStyles((theme) => ({
   root: {
     marginLeft: theme.spacing(3),
-    color: '#f2cd05 !important',
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: theme.spacing(2),
+    },
   },
 }));
 
 const CustomLink = (props: CustumLinkInterface) => {
   const classes = useStyles();
-  const { text, path } = props;
+  const { text, path, ...rest } = props;
 
   return (
-    <Typography className={classes.root}>
-      <Link href={path}>{text}</Link>
+    <Typography className={classes.root} {...rest}>
+      <Link href={path} color="secondary">
+        {text}
+      </Link>
     </Typography>
   );
 };

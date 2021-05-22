@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CustomTypography = (props) => {
+const CustomTypography = (props: TypographyInterface) => {
   const classes = useStyles();
   const { text, ...rest } = props;
   return (

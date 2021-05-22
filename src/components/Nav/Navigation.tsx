@@ -1,16 +1,12 @@
 import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
-import Drawer from '@material-ui/core/Drawer';
-import Hidden from '@material-ui/core/Hidden';
-import IconButton from '@material-ui/core/IconButton';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
+import Link from '../Link/Link';
+import { projects } from '../Projects/ProjectsData';
+import Typography from '../Typography/Typography';
+
 import {
   makeStyles,
   useTheme,
@@ -23,17 +19,20 @@ const drawerWidth = 240;
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      zIndex: 12,
-      left: 40,
-      top: 156,
-      position: 'fixed',
-      width: 250,
+      //   zIndex: 12,
+      //   left: 40,
+      //   top: 156,
+      //   position: 'fixed',
+      //   width: 250,
+      [theme.breakpoints.down('sm')]: {
+        display: 'none',
+      },
     },
   })
 );
 
 export default function ResponsiveDrawer(props) {
-  const { window } = props;
+  const { handleSetCurrentProject } = props;
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -45,20 +44,27 @@ export default function ResponsiveDrawer(props) {
   return (
     <div className={classes.root}>
       <List>
-        {['Project1', 'Project2', 'Project3', 'Project3'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        {projects.map((project) => {
+          return (
+            <ListItem
+              button={true}
+              onClick={() => handleSetCurrentProject(project.id)}
+            >
+              <Typography text={project.name} />
+            </ListItem>
+          );
+          // <Link path={project.link} text={text} />
+        })}
+        {/* {['Lenin', 'Project2', 'Project3', 'Project3'].map((text, index) => (
+          <Link path={text} text={text} />
+        ))} */}
       </List>
-      <Divider />
+      {/* <Divider />
       <List>
         {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemText primary={text} />
-          </ListItem>
+          <Link path={text} text={text} />
         ))}
-      </List>
+      </List> */}
     </div>
   );
 }
