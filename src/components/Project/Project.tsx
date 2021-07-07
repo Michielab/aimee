@@ -2,6 +2,7 @@ import * as React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import ReactPlayer from 'react-player';
 import Typography from '../Typography/Typography';
+import { Link } from 'gatsby';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -44,18 +45,55 @@ const useStyles = makeStyles((theme) => ({
 
 const Project = (props) => {
   const classes = useStyles();
-  const { text, externaLink = '', name } = props;
+  const {
+    text,
+    previewLink = '',
+    title,
+    medium,
+    subText,
+    externalLink,
+    images,
+  } = props;
+
+  console.log('images', images);
   return (
     <div className={classes.container}>
-      <Typography text={name} color="secondary" className={classes.title} />
-      <div className={classes.playerWrapper}>
-        <ReactPlayer
-          url={externaLink}
-          className={classes.reactPlayer}
-          // style={{ width: '100%', height: '100%' }}
-        />
+      <Typography color="secondary" className={classes.title}>
+        {title}
+      </Typography>
+      {/* {medium && (
+        <Typography color="secondary" className={classes.title}>
+          {medium}
+        </Typography>
+      )} */}
+      {previewLink && (
+        <div className={classes.playerWrapper}>
+          <ReactPlayer
+            url={previewLink}
+            className={classes.reactPlayer}
+            // style={{ width: '100%', height: '100%' }}
+          />
+        </div>
+      )}
+      <div>
+        {images &&
+          images.map((img) => {
+            return <img key={img} src={img} style={{ width: '100%' }} />;
+          })}
       </div>
-      <Typography text={text} color="secondary" className={classes.text} />
+      <Typography color="secondary" className={classes.text}>
+        {text}
+      </Typography>
+      {subText && (
+        <Typography color="secondary" className={classes.text}>
+          {subText}
+        </Typography>
+      )}
+      {externalLink && (
+        <Typography color="secondary" className={classes.text}>
+          External link: {<a href={externalLink}>{title}</a>}
+        </Typography>
+      )}
     </div>
   );
 };

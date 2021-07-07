@@ -75,7 +75,7 @@ const Header = (props) => {
             <>
               <MenuItem onClick={handleClose}>Home</MenuItem>
               <MenuItem onClick={handleToggle}>
-                <Typograpy text="Projects" />
+                <Typograpy>Audiovisual</Typograpy>
                 <ListItemIcon>
                   <ExpandMoreIcon fontSize="small" color="secondary" />
                 </ListItemIcon>
@@ -88,7 +88,7 @@ const Header = (props) => {
                         <MenuItem onClick={handleClose}>
                           <Link
                             path={project.link}
-                            text={project.name}
+                            text={project.title}
                             color="primary"
                           />
                         </MenuItem>
@@ -98,7 +98,7 @@ const Header = (props) => {
                 </Grow>
               )}
               <MenuItem onClick={handleToggleTexts}>
-                <Typograpy text="Texts" />
+                <Typograpy>Community and Curatorial work</Typograpy>
                 <ListItemIcon>
                   <ExpandMoreIcon fontSize="small" color="secondary" />
                 </ListItemIcon>
@@ -111,7 +111,7 @@ const Header = (props) => {
                         <MenuItem onClick={handleClose}>
                           <Link
                             path={project.link}
-                            text={project.name}
+                            text={project.title}
                             color="primary"
                           />
                         </MenuItem>
@@ -120,7 +120,29 @@ const Header = (props) => {
                   </div>
                 </Grow>
               )}
-              <MenuItem onClick={handleClose}>Portfolio</MenuItem>
+              <MenuItem onClick={handleToggleTexts}>
+                <Typograpy>Text</Typograpy>
+                <ListItemIcon>
+                  <ExpandMoreIcon fontSize="small" color="secondary" />
+                </ListItemIcon>
+              </MenuItem>
+              {openTexts && (
+                <Grow in={openTexts}>
+                  <div>
+                    {texts.map((project) => {
+                      return (
+                        <MenuItem onClick={handleClose}>
+                          <Link
+                            path={project.link}
+                            text={project.title}
+                            color="primary"
+                          />
+                        </MenuItem>
+                      );
+                    })}
+                  </div>
+                </Grow>
+              )}
               <MenuItem onClick={handleClose}>Contact</MenuItem>
             </>
           );

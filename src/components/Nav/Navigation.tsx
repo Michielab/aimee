@@ -50,7 +50,7 @@ export default function ResponsiveDrawer(props) {
               button={true}
               onClick={() => handleSetCurrentProject(project.id)}
             >
-              <Typography text={project.name} />
+              <Typography>{project.title}</Typography>
             </ListItem>
           );
           // <Link path={project.link} text={text} />

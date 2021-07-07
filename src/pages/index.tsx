@@ -1,83 +1,100 @@
+import { makeStyles } from '@material-ui/core';
 import * as React from 'react';
-import { useState } from 'react';
-import { ThemeProvider } from '@material-ui/core/styles';
-import theme from '../theme/Theme';
-import '../styles/global.css';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link as Bla,
-} from 'react-router-dom';
-
-// import components
-import Header from '../components/Header/Header';
+import Layout from '../components/Layout/Layout';
+import Typography from '../components/Typography/Typography';
+import aimeeQueen from '../images/Audiovisual/synchronicity/synchronicity1.jpg';
 import Link from '../components/Link/Link';
-import Navigation from '../components/Nav/Navigation';
-import Project from '../components/Project/Project';
-import Container from '@material-ui/core/Container';
-import { makeStyles } from '@material-ui/core/styles';
-import { projects } from '../components/Projects/ProjectsData';
-import Menu from '../components/Menu/Menu';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: theme.palette.primary.main,
-    // height: '100vh',
-    display: 'flex',
-    flexGrow: 1,
-    flexDirection: 'column',
+    height: 'calc(100vh - 68px)',
+    padding: theme.spacing(2),
   },
-  navigation: {
-    display: 'flex',
-    flexGrow: 1,
-    [theme.breakpoints.down('sm')]: {
-      display: 'none',
-    },
+  textContainer: {
+    margin: theme.spacing(2),
+    marginLeft: 0,
+    marginRight: 0,
+  },
+  textUnderline: {
+    textDecoration: 'underline',
+    color: ' burlywood !important',
+    marginLeft: 0,
+  },
+  image: {
+    width: '100%',
   },
 }));
-
-const Home = (props) => {
-  const classes = useStyles();
-  const [currentProject, setCurrentProject] = useState(0);
-
-  function handleSetCurrentProject(id: number) {
-    setCurrentProject(id);
-  }
-
-  return (
-    <main className={classes.root}>
-      <Header />
-      <div style={{ display: 'flex', flexGrow: 1 }}>
-        <div className={classes.navigation}>
-          {/* <Navigation handleSetCurrentProject={handleSetCurrentProject} /> */}
-        </div>
-        <div style={{ display: 'flex', flexGrow: 6, justifyContent: 'center' }}>
-          {props.children}
-          {/* {projects.map((project, index) => {
-            if (currentProject === project.id) {
-              return <Project {...project} key={project.id} />;
-            }
-          })} */}
-        </div>
-      </div>
-    </main>
-  );
-};
 
 const Index = (props) => {
   const classes = useStyles();
 
   return (
-    <Router>
-      <ThemeProvider theme={theme}>
-        <Switch>
-          <Route path="/">
-            <Home>{props.children}</Home>
-          </Route>
-        </Switch>
-      </ThemeProvider>
-    </Router>
+    <Layout>
+      <div className={classes.root}>
+        <div className={classes.textContainer}>
+          <div>
+            <Typography color="secondary" variant="h5" display="inline">
+              Meow, I'm{' '}
+              {
+                <Link
+                  path="/projects"
+                  // color="secondary"
+                  variant="h5"
+                  display="inline"
+                  className={classes.textUnderline}
+                >
+                  Aimée
+                </Link>
+              }
+              ,
+            </Typography>
+            <Typography color="secondary" variant="h5" display="inline">
+              {' '}
+              I like{' '}
+              {
+                <Typography
+                  color="secondary"
+                  variant="h5"
+                  display="inline"
+                  className={classes.textUnderline}
+                >
+                  sounds
+                </Typography>
+              }{' '}
+              and{' '}
+              {
+                <Typography
+                  color="secondary"
+                  variant="h5"
+                  display="inline"
+                  className={classes.textUnderline}
+                >
+                  writing
+                </Typography>
+              }{' '}
+              and writing about sounds.
+            </Typography>
+          </div>
+          <div></div>
+          <div className={classes.textContainer}>
+            <Typography color="secondary">
+              I'm an occasional goat whisperer, full-time dog lover, but most of
+              all your communist queen. I'm quite bad at Mario Kart, but for the
+              rest I'm pretty amazing at everything. Other than that I'm very
+              humble. I'm just a really great person. But watch out, I do{' '}
+              {
+                <Typography color="secondary" variant="h5" display="inline">
+                  bite!
+                </Typography>
+              }
+            </Typography>
+          </div>
+        </div>
+        <div>
+          <img src={aimeeQueen} className={classes.image} />
+        </div>
+      </div>
+    </Layout>
   );
 };
 

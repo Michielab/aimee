@@ -2,9 +2,7 @@ import * as React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography, { TypographyProps } from '@material-ui/core/Typography';
 
-interface TypographyInterface extends TypographyProps {
-  text: string;
-}
+interface TypographyInterface extends TypographyProps {}
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,10 +12,10 @@ const useStyles = makeStyles((theme) => ({
 
 const CustomTypography = (props: TypographyInterface) => {
   const classes = useStyles();
-  const { text, ...rest } = props;
+  const { ...rest } = props;
   return (
-    <Typography className={classes.root} {...rest}>
-      {text}
+    <Typography classes={{ root: classes.root }} {...rest}>
+      {props.children}
     </Typography>
   );
 };

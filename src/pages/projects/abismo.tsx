@@ -1,14 +1,14 @@
 import * as React from 'react';
-import Index from '../index';
+import Layout from '../../components/Layout/Layout';
 import Project from '../../components/Project/Project';
 import { projects } from '../../components/Projects/ProjectsData';
 
 const Abismo = (props) => {
   const project = projects[0];
   return (
-    <Index>
+    <Layout>
       <Project {...project} />
-    </Index>
+    </Layout>
   );
 };
 
