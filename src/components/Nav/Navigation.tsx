@@ -4,7 +4,10 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Link from '../Link/Link';
-import { projects } from '../Projects/ProjectsData';
+import {
+  audiovisual,
+  communityandcuratorialwork,
+} from '../Projects/ProjectsData';
 import Typography from '../Typography/Typography';
 
 import {
@@ -44,7 +47,7 @@ export default function ResponsiveDrawer(props) {
   return (
     <div className={classes.root}>
       <List>
-        {projects.map((project) => {
+        {audiovisual.map((project) => {
           return (
             <ListItem
               button={true}

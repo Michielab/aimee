@@ -2,26 +2,31 @@ import * as React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import ReactPlayer from 'react-player';
 import Typography from '../Typography/Typography';
-import { Link } from 'gatsby';
+import { Document, Page } from 'react-pdf';
+import { useState } from 'react';
 
 const useStyles = makeStyles((theme) => ({
   container: {
     flex: '1',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',
+    // alignItems: 'center',
     padding: theme.spacing(2),
     '& > *': {
       zIndex: 100,
     },
   },
   title: {
-    margin: theme.spacing(3),
+    marginTop: theme.spacing(3),
+    marginBottom: theme.spacing(3),
+  },
+  medium: {
+    marginBottom: theme.spacing(2),
   },
   text: {
     marginTop: theme.spacing(3),
     marginBottom: theme.spacing(3),
-    textAlign: 'center',
+    textAlign: 'justify',
     letterSpacing: '0.01em',
   },
   playerWrapper: {
@@ -41,10 +46,19 @@ const useStyles = makeStyles((theme) => ({
       left: 0,
     },
   },
+  imageContainer: {
+    marginTop: '5px',
+  },
 }));
 
 const Project = (props) => {
   const classes = useStyles();
+  const [numPages, setNumPages] = useState(null);
+  const [pageNumber, setPageNumber] = useState(1);
+
+  function onDocumentLoadSuccess({ numPages }) {
+    setNumPages(numPages);
+  }
   const {
     text,
     previewLink = '',
@@ -53,6 +67,7 @@ const Project = (props) => {
     subText,
     externalLink,
     images,
+    pdf = false,
   } = props;
 
   console.log('images', images);
@@ -61,11 +76,15 @@ const Project = (props) => {
       <Typography color="secondary" className={classes.title}>
         {title}
       </Typography>
-      {/* {medium && (
-        <Typography color="secondary" className={classes.title}>
+      {medium && (
+        <Typography
+          color="secondary"
+          className={classes.medium}
+          variant="body2"
+        >
           {medium}
         </Typography>
-      )} */}
+      )}
       {previewLink && (
         <div className={classes.playerWrapper}>
           <ReactPlayer
@@ -75,7 +94,20 @@ const Project = (props) => {
           />
         </div>
       )}
-      <div>
+      {/* {pdf && (
+        <iframe
+          src={`https://drive.google.com/viewerng/viewer?url=${'https://cc-catalogo.org/site/pdf/Misofonia00-PDF.pdf'}?pid=explorer&efh=false&a=v&chrome=false&embedded=true`}
+          width="400px"
+          height="300px"
+        />
+        // <Document
+        //   file=""
+        //   onLoadSuccess={onDocumentLoadSuccess}
+        // >
+        //   <Page pageNumber={pageNumber} />
+        // </Document>
+      )} */}
+      <div className={previewLink ? classes.imageContainer : ''}>
         {images &&
           images.map((img) => {
             return <img key={img} src={img} style={{ width: '100%' }} />;
@@ -91,7 +123,12 @@ const Project = (props) => {
       )}
       {externalLink && (
         <Typography color="secondary" className={classes.text}>
-          External link: {<a href={externalLink}>{title}</a>}
+          External link:{' '}
+          {
+            <a href={externalLink} target="_blank">
+              {title}
+            </a>
+          }
         </Typography>
       )}
     </div>

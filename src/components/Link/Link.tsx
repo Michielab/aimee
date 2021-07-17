@@ -6,6 +6,7 @@ import Typography, { TypographyProps } from '@material-ui/core/Typography';
 interface CustumLinkInterface extends TypographyProps {
   text?: string;
   path: string;
+  external?: boolean;
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -25,11 +26,17 @@ const useStyles = makeStyles((theme) => ({
 
 const CustomLink = (props: CustumLinkInterface) => {
   const classes = useStyles();
-  const { text, path, ...rest } = props;
+  const { text, path, external, ...rest } = props;
 
   return (
     <Typography className={classes.root} {...rest}>
-      <Link to={path}>{text || props.children}</Link>
+      {external ? (
+        <a href={path} target="_blank">
+          {text || props.children}
+        </a>
+      ) : (
+        <Link to={path}>{text || props.children}</Link>
+      )}
     </Typography>
   );
 };

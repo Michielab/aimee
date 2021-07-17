@@ -7,6 +7,7 @@ interface TypographyInterface extends TypographyProps {}
 const useStyles = makeStyles((theme) => ({
   root: {
     // color: '#F2CD05 !important',
+    textAlign: 'justify',
   },
 }));
 
@@ -14,7 +15,7 @@ const CustomTypography = (props: TypographyInterface) => {
   const classes = useStyles();
   const { ...rest } = props;
   return (
-    <Typography classes={{ root: classes.root }} {...rest}>
+    <Typography id="test" classes={{ root: classes.root }} {...rest}>
       {props.children}
     </Typography>
   );

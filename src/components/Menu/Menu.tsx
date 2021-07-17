@@ -12,9 +12,12 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
     },
     menu: {
+      // backgroundColor: 'red',
+      overflow: 'scroll',
       backgroundColor: theme.palette.primary.main,
       border: 'none',
       width: '100%',
+      // maxHeight: 'calc(100vh - 68px)',
       '& > *': {
         color: theme.palette.primary.contrastText,
       },
@@ -75,25 +78,39 @@ export default function MenuListComposition(props) {
           open={open}
           anchorEl={containerRef.current}
           role={undefined}
-          transition
-          disablePortal
-          style={{ zIndex: 9999, width: '100%' }}
+          transition={false}
+          disablePortal={true}
+          style={{
+            zIndex: 9999,
+            width: '100%',
+            height: 'calc(100vh - 68px)',
+            overflow: 'auto',
+            top: '68px',
+          }}
+          placement={'bottom-start'}
+          modifiers={{
+            preventOverflow: {
+              enabled: true,
+              boundariesElement: 'scrollParent',
+            },
+          }}
+          popperOptions={{ positionFixed: false }}
         >
           {({ TransitionProps, placement }) => (
-            <Grow {...TransitionProps}>
-              <div style={{ width: '100%', backgroundColor: 'blue' }}>
-                <ClickAwayListener onClickAway={handleClose}>
-                  <MenuList
-                    autoFocusItem={open}
-                    id="menu-list-grow"
-                    onKeyDown={handleListKeyDown}
-                    classes={{ root: classes.menu }}
-                  >
-                    {renderMenuItems(handleClose)}
-                  </MenuList>
-                </ClickAwayListener>
-              </div>
-            </Grow>
+            // <Grow {...TransitionProps}>
+            <div>
+              <ClickAwayListener onClickAway={handleClose}>
+                <MenuList
+                  autoFocusItem={open}
+                  id="menu-list-grow"
+                  onKeyDown={handleListKeyDown}
+                  classes={{ root: classes.menu }}
+                >
+                  {renderMenuItems(handleClose)}
+                </MenuList>
+              </ClickAwayListener>
+            </div>
+            // </Grow>
           )}
         </Popper>
       </div>

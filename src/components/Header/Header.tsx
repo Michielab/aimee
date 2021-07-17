@@ -6,7 +6,12 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
 import IconButton from '@material-ui/core/Button';
-import { projects, texts } from '../Projects/ProjectsData';
+import {
+  audiovisual,
+  texts,
+  communityandcuratorialwork,
+  socialMedia,
+} from '../Projects/ProjectsData';
 
 import Menu from '../Menu/Menu';
 import Link from '../Link/Link';
@@ -14,6 +19,8 @@ import { Grow } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    // position: 'fixed',
+    // top: 0,
     display: 'flex',
     backgroundColor: theme.palette.primary.main,
     width: '100%',
@@ -22,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       height: 68,
       justifyContent: 'space-between',
+      zIndex: 99999,
     },
     // padding: '16px',
     // mobile code
@@ -33,6 +41,8 @@ const Header = (props) => {
   const anchorRef = React.useRef<HTMLDivElement>(null);
   const [openProjects, toggleOpenProjects] = React.useState(false);
   const [openTexts, toggleOpenTexts] = React.useState(false);
+  const [openCommunityWork, toggleOpenCommunityWork] = React.useState(false);
+  const [openSocialMedia, toggleOpenSocialMedia] = React.useState(false);
 
   function handleToggle() {
     toggleOpenProjects(!openProjects);
@@ -42,9 +52,19 @@ const Header = (props) => {
     toggleOpenTexts(!openTexts);
   }
 
+  function handleToggleCommunityWork() {
+    toggleOpenCommunityWork(!openCommunityWork);
+  }
+
+  function handleToggleSocialMedia() {
+    toggleOpenSocialMedia(!openSocialMedia);
+  }
+
   function handleClose() {
     toggleOpenProjects(false);
     toggleOpenTexts(false);
+    toggleOpenCommunityWork(false);
+    toggleOpenSocialMedia(false);
   }
 
   const menuRef = React.useRef<HTMLLIElement>(null);
@@ -83,7 +103,7 @@ const Header = (props) => {
               {openProjects && (
                 <Grow in={openProjects}>
                   <div>
-                    {projects.map((project) => {
+                    {audiovisual.map((project) => {
                       return (
                         <MenuItem onClick={handleClose}>
                           <Link
@@ -97,16 +117,16 @@ const Header = (props) => {
                   </div>
                 </Grow>
               )}
-              <MenuItem onClick={handleToggleTexts}>
+              <MenuItem onClick={handleToggleCommunityWork}>
                 <Typograpy>Community and Curatorial work</Typograpy>
                 <ListItemIcon>
                   <ExpandMoreIcon fontSize="small" color="secondary" />
                 </ListItemIcon>
               </MenuItem>
-              {openTexts && (
-                <Grow in={openTexts}>
+              {openCommunityWork && (
+                <Grow in={openCommunityWork}>
                   <div>
-                    {texts.map((project) => {
+                    {communityandcuratorialwork.map((project) => {
                       return (
                         <MenuItem onClick={handleClose}>
                           <Link
@@ -136,6 +156,30 @@ const Header = (props) => {
                             path={project.link}
                             text={project.title}
                             color="primary"
+                          />
+                        </MenuItem>
+                      );
+                    })}
+                  </div>
+                </Grow>
+              )}
+              <MenuItem onClick={handleToggleSocialMedia}>
+                <Typograpy>Social media</Typograpy>
+                <ListItemIcon>
+                  <ExpandMoreIcon fontSize="small" color="secondary" />
+                </ListItemIcon>
+              </MenuItem>
+              {openSocialMedia && (
+                <Grow in={openSocialMedia}>
+                  <div>
+                    {socialMedia.map((project) => {
+                      return (
+                        <MenuItem onClick={handleClose}>
+                          <Link
+                            path={project.link}
+                            text={project.title}
+                            color="primary"
+                            external={true}
                           />
                         </MenuItem>
                       );

@@ -13,13 +13,43 @@ import Karaoke1 from '../../images/Audiovisual/karaoke/Karaoke1.jpg';
 import Karaoke2 from '../../images/Audiovisual/karaoke/Karaoke2.jpg';
 import Karaoke3 from '../../images/Audiovisual/karaoke/Karaoke3.jpg';
 
-const projects = [
+import Cha01 from '../../images/Community/cha/cha01.jpg';
+import Cha02 from '../../images/Community/cha/cha02.jpg';
+import Cha03 from '../../images/Community/cha/cha03.jpg';
+import Cha04 from '../../images/Community/cha/cha04.jpg';
+import Cha05 from '../../images/Community/cha/cha05.jpg';
+
+import Sororidad01 from '../../images/Community/Sororidad/Sororidad01.jpg';
+import Sororidad02 from '../../images/Community/Sororidad/Sororidad02.jpg';
+import Sororidad03 from '../../images/Community/Sororidad/Sororidad03.jpg';
+import Sororidad04 from '../../images/Community/Sororidad/Sororidad04.jpg';
+import Sororidad05 from '../../images/Community/Sororidad/Sororidad05.jpg';
+import Sororidad06 from '../../images/Community/Sororidad/Sororidad06.jpg';
+
+import Book from '../../images/Text/acry/Book.jpg';
+import Poster from '../../images/Text/acry/Poster.jpg';
+
+import Erotic1 from '../../images/Text/erotic/Erotic1.jpg';
+import Erotic2 from '../../images/Text/erotic/Erotic2.jpg';
+import Erotic3 from '../../images/Text/erotic/Erotic3.jpg';
+
+import BookKeithRow from '../../images/Text/keithrow/Book.pdf';
+
+import Article from '../../images/Text/metropolis/Article.pdf';
+import MagazineCover from '../../images/Text/metropolis/MagazineCover.jpg';
+
+import ofWoman from '../../images/Text/ofWoman/ofWoman.jpg';
+import ofWomanBook01 from '../../images/Text/ofWoman/ofWomanBook01.jpg';
+import ofWomanBook02 from '../../images/Text/ofWoman/ofWomanBook02.jpg';
+import ofWomanBook03 from '../../images/Text/ofWoman/ofWomanBook03.jpg';
+
+const audiovisual = [
   {
     id: 1,
     title:
       'Voice, sound, technology and binaries: an audio essay featuring Sasha Geffen (2021)',
     medium: '',
-    link: '/projects/abismo',
+    link: '/projects/audiovisual/soundsbeyondbinaries',
     previewLink: 'https://soundcloud.com/radio-rietveld/sounds-beyond-binaries',
     externalLink:
       'https://www.extraintra.nl/article/voice-sound-technology-and-binaries-an-audio-essay-featuring-sasha-geffen',
@@ -31,7 +61,7 @@ const projects = [
     id: 2,
     title: 'Filamental (2019)',
     medium: 'Sound composition. Live performance.',
-    link: '/projects/filamental',
+    link: '/projects/audiovisual/filamental',
     previewLink:
       'https://www.youtube.com/watch?v=_reO_kHjhFc&ab_channel=JazzExplorer',
     externalLink:
@@ -43,7 +73,7 @@ const projects = [
     id: 3,
     title: '*​pop* the sound of a bursting bubble (​ 2020)',
     medium: 'Binaural sound performance',
-    link: '/projects/pop',
+    link: '/projects/audiovisual/pop',
     images: [Pop1, Pop2, Pop3, Pop4, Pop5, Pop6],
     previewLink: '',
     externalLink: '',
@@ -55,25 +85,19 @@ const projects = [
   },
   {
     id: 4,
-    title: 'Soundcloud',
-    link: 'https://soundcloud.com/aimeetheriot',
-    text: '',
-  },
-  {
-    id: 5,
     title: 'The Synchronicity of the Non-Synchronous (​ 2019)',
     medium: 'Text, Installation, Performative reading',
-    link: '/projects/synchronicity',
+    link: '/projects/audiovisual/synchronicity',
     images: [Synchronicity1, Synchronicity2, Synchronicity3],
     previewLink: '',
     externalLink: '',
     text: `Performative reading shown at the Sandberg Instituut Gallery space in June 2019. The text and the performance are a meditation on the non-synchronicity of a time when human beings aren’t able to keep up with the pace of technological progress. By juxtaposing old and new pieces of technology like metronomes and smartphones, the piece speaks about the ambivalence of the passing of time in a digitally mediated world and the flattening of our experience of Otherness.`,
   },
   {
-    id: 6,
+    id: 5,
     title: 'Touchscreen (2020)',
     medium: 'Audiovisual Essay/Binaural sound',
-    link: '/projects/touchscreen',
+    link: '/projects/audiovisual/touchscreen',
     images: '',
     previewLink:
       'https://www.youtube.com/watch?v=142_oU5FSd8&ab_channel=AimeeTheriot-Ramos',
@@ -83,11 +107,11 @@ const projects = [
     meant to be seen as vertical video on a smartphone and headphones.`,
   },
   {
-    id: 7,
+    id: 6,
     title:
       'I’m sure you’ve heard it all before but you never really had a doubt... (2020)',
     medium: 'In collaboration with Luca Soudant',
-    link: '/projects/karaoke',
+    link: '/projects/audiovisual/karaoke',
     images: [Karaoke1, Karaoke2, Karaoke3],
     previewLink: '',
     externalLink: '',
@@ -95,26 +119,141 @@ const projects = [
   },
 ];
 
-const texts = [
+const communityandcuratorialwork = [
   {
     id: 1,
-    title: 'a cry, a whisper, a voice',
-    date: '2020',
-    link: 'https://54b4062d-6101-4469-9c04-8189030192d2.filesusr.com/ugd/689471_5a4de9ca833d4382bffbc871ec0f2dc8.pdf',
-    text: 'The idea of this installation is to bring people together in real life experiences, through the use of technological tools and audiovisuals, as a way of generating a shared in situ experience between two strangers. People were invited throughout the course of 6 months to sign up in a website that was put together to “match” strangers based solely on the date and time they picked in a calendar. These people would then visit the installation space in pairs, on a given hour and day and meet the other person for the first time. Then, they would sit facing each other and be connected to biosensors (EEG, skin conductivity and heartbeat). The participants were surrounded by an audiovisual environment that was being created in real time through the data gathered by the biosensors. This was a collaboration with Mexican artist Eduardo Obieta. Supported by the National Fund for Culture and the Arts (FONCA).',
+    title: 'Cha’ak’ab Paaxil Festival',
+    medium: '',
+    link: '/projects/communityandcuratorial/chaakabpaaxil',
+    images: [Cha01, Cha02, Cha03, Cha04, Cha05],
+    previewLink: 'https://youtu.be/SM3rycjFmus',
+    externalLink: 'https://youtu.be/SM3rycjFmus',
+    text: 'As an educational programmer of the Cha’ak’ab Paaxil Festival, my activities included organizing and coordinating workshops given by artists invited to the festival. This programme had a community-oriented goal, in which the aim was to bring workshops and concerts with experimental sound artists into marginalized communities.',
+    subText:
+      'The festival presented Free Jazz, Noise and experimental music to audiences in the city of Mérida, Yucatán, some of the invited artists were Burkhard Stangl, Sean Meehan, Toshimaru Nakamura, Tetuzi Akiyama, Makoto Kawabata, Paal Nilssen-Love, Bhob Rainey, Kevin Drumm, Bonnie Jones, Cristián Alvear, Ko Ishikawa, Yumiko Tanaka, Remi Álvarez, Germán Bringas, Alfonso Muñoz, Wilfrido Terrazas, Angélica Castelló, Mario de Vega, Manrico Montero, Carmina Escobar, Fernando Vigueras, María Lipkau, Aimée Theriot, Itzam Cano, Alexander Bruck amongst others.',
   },
   {
     id: 2,
-    title: 'Feature on Metropolis M',
-    link: 'https://www.youtube.com/watch?v=erQkIUvtMpk&ab_channel=Aim%C3%A9eTheriot',
-    text: 'The piece combines movement, improvisation and the performer’s reaction to the sounds which are being transformed in real time through the use of an EEG sensor and the algorithmic composition environment SuperCollider. The premise of the work is to make invisible processes (like the electromagnetic frequencies of our brain waves) accessible to our senses through the use of technology and to interact with this processes in the form of sound, movement and improvisation. This is a work in progress which will be presented at the National Center for the Arts in Mexico City in August 2018. Sponsored by the National Center for the Arts (CNA) through their Program for Research in the Arts and Technology.',
+    title: 'No.Estacion.Arte (2009 - 2012)',
+    medium: '',
+    link: '/projects/communityandcuratorial/noestacion',
+    images: '',
+    // https://youtu.be/SM3rycjFmus
+    previewLink: 'https://youtu.be/oSgabNPe2GY',
+    externalLink: 'https://youtu.be/oSgabNPe2GY',
+    text: 'The No.Estacion.Arte collective was born out of the need to create a space where sound art and experimental music could be produced and presented in my hometown city of Mérida, Yucatán. Our aim was to make experimental music accessible to a diverse community. We organized music classes and concerts in villages where access to education is scarce. We also held a weekly improvisation session open to anyone which happened uninterrupted for 3 years. During this time, networks and collaborations sparked within a diverse group of artists in the city and from abroad. No.Estacion.Arte served as a meeting point for people interested in socially engaged sound, art and music.',
+    subText:
+      'Video made by the local TV show Real Life in Merida, describing our educational work.',
   },
   {
     id: 3,
-    title: 'A conversation with British experimental guitarist Keith Rowe',
-    link: 'https://soundcloud.com/aimeetheriot/they-call-it-a-fantasy-02-2017-aimee-theriot-maria-lipkau',
-    text: 'The piece is based on the work of feminist Latin American and American poets. It is part of a larger ongoing project which tries to raise awareness of the crisis that is happening in Mexico where 7 women are murdered every day due to gender violence. For more information about this issue please visit:OBSERVATORIO CIUDADANO NACIONAL DEL FEMINICIDIO',
+    title: 'Celectivo So(r)oridad (2016 - 2018)',
+    medium: '',
+    link: '/projects/communityandcuratorial/so(r)oridad',
+    images: [
+      Sororidad01,
+      Sororidad02,
+      Sororidad03,
+      Sororidad04,
+      Sororidad05,
+      Sororidad06,
+    ],
+    previewLink: '',
+    externalLink: '',
+    text: 'I was the co-founder of this initiative which supported people who identify as womxn, encouraging their active participation in the sound art, electronic and experimental music scene in Mexico. We curated concerts, organized workshops and networking events. The other co-founders are Mirna Castro, Lillian Müller, Danae Silva and Eva Coronado.',
+    subText: '',
+  },
+  {
+    id: 4,
+    title:
+      'Ssssound_ aproximations to contemporary audio culture (2021 - 2022)',
+    medium: '',
+    link: '/projects/communityandcuratorial/ssssound',
+    images: '',
+    previewLink: '',
+    externalLink:
+      'https://www.extraintra.nl/article/1-open-call-11-proposals-3-reflections-2-platforms',
+    text: 'This forthcoming project will start in September 2021. In collaboration with Luca Soudant, Constanza Castagnet, Margaux Koch and Alex Harris, ssssound will function as a platform within the Gerrit Rietveld Academie and Sandberg Instituut, presenting a curated programme around the topic of contemporary audio culture. The official programme, events and speakers will be revealed by the beginning of September 2021.',
+    subText:
+      'Supported by the Editorial Board of the Gerrit Rietveld Academie.',
   },
 ];
 
-export { projects, texts };
+const texts = [
+  {
+    id: 1,
+    title: 'a cry, a whisper, a voice (2020)',
+    medium: '',
+    link: '/projects/text/acry',
+    images: [Book, Poster],
+    previewLink: '',
+    externalLink:
+      'https://54b4062d-6101-4469-9c04-8189030192d2.filesusr.com/ugd/689471_5a4de9ca833d4382bffbc871ec0f2dc8.pdf',
+    text: '',
+  },
+  {
+    id: 2,
+    title: 'Erotic Listening as Solidary Practice (2021)',
+    medium: '',
+    link: '/projects/text/eroticlistening',
+    images: [Erotic1, Erotic2, Erotic3],
+    previewLink:
+      'https://soundcloud.com/aimeetheriot/pop-the-sound-of-a-bursting-bubble',
+    externalLink:
+      'https://soundcloud.com/aimeetheriot/pop-the-sound-of-a-bursting-bubble',
+    text: 'This handmade booklet was part of the exhibition ZzZ in Amsterdam, summer 2021. The booklet includes an essay, a poem and a sound piece',
+  },
+  {
+    id: 3,
+    title: 'Interview with Keith Row for Misofonia (2016)',
+    link: '/projects/text/keithrow',
+    images: '',
+    pdf: BookKeithRow,
+    previewLink: '',
+    externalLink: 'https://cc-catalogo.org/site/pdf/Misofonia00-PDF.pdf',
+    text: '',
+  },
+  {
+    id: 4,
+    title: 'MA Thesis',
+    medium: '',
+    link: '/projects/text/thesis',
+    images: [],
+    previewLink: '',
+    externalLink:
+      'https://www.academia.edu/45224922/The_Big_Ears_of_Big_Data_Listening_in_the_Digital_Control_Society',
+    text: '',
+  },
+  {
+    id: 5,
+    title: 'Metropolis M Profile (2020)',
+    medium: '',
+    link: '/projects/text/metropolis',
+    images: [Article, MagazineCover],
+    previewLink: '',
+    externalLink:
+      'https://www.academia.edu/45224922/The_Big_Ears_of_Big_Data_Listening_in_the_Digital_Control_Society',
+    text: '',
+  },
+  {
+    id: 6,
+    title: 'Of Womxn and Other Weeds (2021)',
+    medium: '',
+    link: '/projects/text/ofwomxn',
+    images: [ofWoman, ofWomanBook01, ofWomanBook02, ofWomanBook03],
+    previewLink: '',
+    externalLink: '',
+    text: '',
+  },
+];
+
+const socialMedia = [
+  {
+    id: 1,
+    title: 'Soundcloud',
+    link: 'https://soundcloud.com/aimeetheriot',
+    text: '',
+  },
+];
+
+export { audiovisual, communityandcuratorialwork, texts, socialMedia };

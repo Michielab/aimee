@@ -15,10 +15,10 @@ const theme = createMuiTheme({
       contrastText: '#000000',
     },
     secondary: {
-      light: '#f2cd05',
-      main: '#f2cd05',
+      light: '#000000',
+      main: '#000000',
       // dark: will be calculated from palette.secondary.main,
-      contrastText: '#f2cd05',
+      contrastText: '#000000',
     },
   },
 });

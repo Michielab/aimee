@@ -7,8 +7,12 @@ import Link from '../components/Link/Link';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: 'calc(100vh - 68px)',
+    height: 'calc(100vh - 100px)',
     padding: theme.spacing(2),
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'column',
+    justifyContent: 'center',
   },
   textContainer: {
     margin: theme.spacing(2),
@@ -23,6 +27,13 @@ const useStyles = makeStyles((theme) => ({
   image: {
     width: '100%',
   },
+  footer: {
+    display: 'none',
+    [theme.breakpoints.down('sm')]: {
+      height: 68,
+      display: 'block',
+    },
+  },
 }));
 
 const Index = (props) => {
@@ -31,7 +42,7 @@ const Index = (props) => {
   return (
     <Layout>
       <div className={classes.root}>
-        <div className={classes.textContainer}>
+        {/* <div className={classes.textContainer}>
           <div>
             <Typography color="secondary" variant="h5" display="inline">
               Meow, I'm{' '}
@@ -89,10 +100,11 @@ const Index = (props) => {
               }
             </Typography>
           </div>
-        </div>
+        </div> */}
         <div>
           <img src={aimeeQueen} className={classes.image} />
         </div>
+        <div className={classes.footer}></div>
       </div>
     </Layout>
   );
