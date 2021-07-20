@@ -72,7 +72,41 @@ const Header = (props) => {
   return (
     <div className={classes.root}>
       <Link path={'/'} text={'Aimée Theriot Ramos'} color="textSecondary" />
+      {/* <div style={{ display: 'flex' }}>
+        <MenuItem onClick={handleToggle}>
+          <Typograpy>Audiovisual</Typograpy>
+          <ListItemIcon>
+            <ExpandMoreIcon fontSize="small" color="secondary" />
+          </ListItemIcon>
+        </MenuItem>
+        <MenuItem onClick={handleToggle}>
+          <Typograpy>Community and Curatorial work</Typograpy>
+          <ListItemIcon>
+            <ExpandMoreIcon fontSize="small" color="secondary" />
+          </ListItemIcon>
+        </MenuItem>
+        <MenuItem onClick={handleToggle}>
+          <Typograpy>Text</Typograpy>
+          <ListItemIcon>
+            <ExpandMoreIcon fontSize="small" color="secondary" />
+          </ListItemIcon>
+        </MenuItem>
+        <MenuItem onClick={handleToggle}>
+          <Typograpy>Social Media</Typograpy>
+          <ListItemIcon>
+            <ExpandMoreIcon fontSize="small" color="secondary" />
+          </ListItemIcon>
+        </MenuItem>
+        <MenuItem onClick={handleToggle}>
+          <Typograpy>Contact</Typograpy>
+          <ListItemIcon>
+            <ExpandMoreIcon fontSize="small" color="secondary" />
+          </ListItemIcon>
+        </MenuItem>
+      </div> */}
+
       <Menu
+        handleCloseSubMenu={handleClose}
         renderButton={(buttonRef, handleToggle, open, handleCloseMenu) => {
           return (
             <IconButton
@@ -80,7 +114,7 @@ const Header = (props) => {
               aria-controls={open ? 'menu-list-grow' : undefined}
               aria-haspopup="true"
               onClick={(e) => {
-                !open ? handleToggle(e) : handleCloseMenu(handleClose);
+                !open ? handleToggle(e) : handleCloseMenu();
               }}
               disableTouchRipple={true}
               disableRipple={true}
@@ -95,10 +129,10 @@ const Header = (props) => {
         }}
         renderMenuItems={(handleClose) => {
           return (
-            <>
+            <div>
               <MenuItem onClick={handleClose}>
                 <Link
-                  noMargin={true}
+                  nomargin={true}
                   path={'/'}
                   text={'Home'}
                   color="primary"
@@ -198,7 +232,7 @@ const Header = (props) => {
                 </Grow>
               )}
               <MenuItem onClick={handleClose}>Contact</MenuItem>
-            </>
+            </div>
           );
         }}
       />

@@ -7,20 +7,22 @@ interface CustumLinkInterface extends TypographyProps {
   text?: string;
   path: string;
   external?: boolean;
-  noMargin?: boolean;
+  nomargin?: boolean;
 }
 
 const useStyles = makeStyles((theme) => ({
-  root: ({ noMargin = false }: CustumLinkInterface) => ({
+  root: ({ nomargin = false }: CustumLinkInterface) => ({
     wordBreak: 'break-word',
     whiteSpace: 'normal',
+    width: '100%',
     marginLeft: theme.spacing(3),
     [theme.breakpoints.down('sm')]: {
-      marginLeft: noMargin ? theme.spacing(0) : theme.spacing(2),
+      marginLeft: nomargin ? theme.spacing(0) : theme.spacing(2),
     },
     '& > a': {
       color: theme.palette.primary.contrastText,
       textDecoration: 'none',
+      display: 'block',
     },
   }),
 }));

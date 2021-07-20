@@ -4,7 +4,7 @@ import Project from '../../../components/Project/Project';
 import { audiovisual } from '../../../components/Projects/ProjectsData';
 
 const Touchscreen = (props) => {
-  const project = audiovisual[5];
+  const project = audiovisual[4];
   return (
     <Layout>
       <Project {...project} />

@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function MenuListComposition(props) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const { renderMenuItems, renderButton } = props;
+  const { renderMenuItems, renderButton, handleCloseSubMenu } = props;
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -36,7 +36,7 @@ export default function MenuListComposition(props) {
 
   const handleClose = (handleClose) => {
     setAnchorEl(null);
-    handleClose();
+    handleCloseSubMenu();
   };
 
   return (

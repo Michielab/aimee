@@ -28,13 +28,16 @@ const useStyles = makeStyles((theme) => ({
   text: {
     marginTop: theme.spacing(3),
     textAlign: 'justify',
-    letterSpacing: '0.01em',
+    // display: 'block',
   },
   playerWrapper: {
     position: 'relative',
     paddingTop: '56.25%' /* 720 / 1280 = 0.5625 */,
     width: '100%',
     marginTop: theme.spacing(3),
+    [theme.breakpoints.up('sm')]: {
+      width: '50%',
+    },
   },
   reactPlayer: {
     overflow: 'hidden',
@@ -61,6 +64,11 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       width: '100%',
     },
+  },
+  link: {
+    display: 'block',
+    color: theme.palette.primary.contrastText,
+    marginBottom: theme.spacing(3),
   },
 }));
 
@@ -147,9 +155,9 @@ const Project = (props) => {
       )}
       {externalLink && (
         <Typography color="secondary" className={classes.text}>
-          External link:{' '}
           {
-            <a href={externalLink} target="_blank">
+            <a href={externalLink} target="_blank" className={classes.link}>
+              {/* External link:  */}
               {title}
             </a>
           }
