@@ -1,0 +1,2 @@
+(self.webpackChunkaimee=self.webpackChunkaimee||[]).push([[147],{6484:function(e,n,t){"use strict";t.r(n);var u=t(7294),a=t(1821),r=t(5810),c=t(4128);n.default=function(){var e=c.uq[5];return u.createElement(a.Z,null,u.createElement(r.Z,e))}}}]);
+//# sourceMappingURL=component---src-pages-projects-text-ofwomxn-js-f24e8dd2767907df01cd.js.map
