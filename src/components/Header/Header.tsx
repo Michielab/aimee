@@ -17,7 +17,7 @@ import {
 
 import Menu from '../Menu/Menu';
 import Link from '../Link/Link';
-import { Grow } from '@material-ui/core';
+import { Button, Grow } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,7 +41,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Header = (props) => {
   const classes = useStyles();
-  const anchorRef = React.useRef<HTMLDivElement>(null);
   const [openProjects, toggleOpenProjects] = React.useState(false);
   const [openTexts, toggleOpenTexts] = React.useState(false);
   const [openCommunityWork, toggleOpenCommunityWork] = React.useState(false);
@@ -70,21 +69,18 @@ const Header = (props) => {
     toggleOpenSocialMedia(false);
   }
 
-  const menuRef = React.useRef<HTMLLIElement>(null);
-
   return (
-    <div ref={anchorRef} className={classes.root}>
+    <div className={classes.root}>
       <Link path={'/'} text={'Aimée Theriot Ramos'} color="textSecondary" />
       <Menu
-        containerRef={anchorRef}
-        renderButton={(buttonRef, handleToggle, open) => {
+        renderButton={(buttonRef, handleToggle, open, handleCloseMenu) => {
           return (
             <IconButton
               ref={buttonRef}
               aria-controls={open ? 'menu-list-grow' : undefined}
               aria-haspopup="true"
-              onClick={() => {
-                handleToggle(), handleClose();
+              onClick={(e) => {
+                !open ? handleToggle(e) : handleCloseMenu(handleClose);
               }}
               disableTouchRipple={true}
               disableRipple={true}

@@ -3,7 +3,7 @@ import Layout from '../../../components/Layout/Layout';
 import Project from '../../../components/Project/Project';
 import { texts } from '../../../components/Projects/ProjectsData';
 
-const BaseComponent = () => {
+const Metropolis = () => {
   const project = texts[4];
   return (
     <Layout>
@@ -12,4 +12,4 @@ const BaseComponent = () => {
   );
 };
 
-export default BaseComponent;
+export default Metropolis;
