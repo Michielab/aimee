@@ -15,17 +15,18 @@ const useStyles = makeStyles((theme) => ({
     '& > *': {
       zIndex: 100,
     },
+    '& > :last-child': {
+      marginBottom: theme.spacing(3),
+    },
   },
   title: {
-    marginTop: theme.spacing(3),
-    marginBottom: theme.spacing(3),
+    // marginTop: theme.spacing(3),
   },
   medium: {
-    marginBottom: theme.spacing(2),
+    marginTop: theme.spacing(1),
   },
   text: {
     marginTop: theme.spacing(3),
-    marginBottom: theme.spacing(3),
     textAlign: 'justify',
     letterSpacing: '0.01em',
   },
@@ -33,21 +34,33 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     paddingTop: '56.25%' /* 720 / 1280 = 0.5625 */,
     width: '100%',
+    marginTop: theme.spacing(3),
   },
   reactPlayer: {
     overflow: 'hidden',
     position: 'absolute',
-    [theme.breakpoints.down('sm')]: {
-      overflow: 'unset',
-      width: '100% !important',
-      height: '100% !important',
-      objectFit: 'contain',
-      top: 0,
-      left: 0,
-    },
+    // [theme.breakpoints.down('sm')]: {
+    // overflow: 'unset',
+    width: '100% !important',
+    height: '100% !important',
+    objectFit: 'contain',
+    top: 0,
+    left: 0,
+    // },
   },
   imageContainer: {
+    marginTop: theme.spacing(3),
+    [theme.breakpoints.up('sm')]: {
+      width: '50%',
+    },
+  },
+  topMargin: {
     marginTop: '5px',
+  },
+  image: {
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+    },
   },
 }));
 
@@ -66,14 +79,18 @@ const Project = (props) => {
     medium,
     subText,
     externalLink,
-    images,
+    images = false,
     pdf = false,
   } = props;
 
   console.log('images', images);
   return (
     <div className={classes.container}>
-      <Typography color="secondary" className={classes.title}>
+      <Typography
+        variant="subtitle1"
+        color="secondary"
+        className={classes.title}
+      >
         {title}
       </Typography>
       {medium && (
@@ -107,12 +124,19 @@ const Project = (props) => {
         //   <Page pageNumber={pageNumber} />
         // </Document>
       )} */}
-      <div className={previewLink ? classes.imageContainer : ''}>
-        {images &&
-          images.map((img) => {
-            return <img key={img} src={img} style={{ width: '100%' }} />;
+      {images && (
+        <div
+          // className={`${classes.imageContainer} ${
+          //   previewLink ? classes.topMargin : ''
+          // }`}
+          className={classes.imageContainer}
+        >
+          {images.map((img) => {
+            return <img key={img} src={img} className={classes.image} />;
           })}
-      </div>
+        </div>
+      )}
+
       <Typography color="secondary" className={classes.text}>
         {text}
       </Typography>

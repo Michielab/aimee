@@ -5,6 +5,8 @@ import Typograpy from '../Typography/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
+import CloseIcon from '@material-ui/icons/Close';
+
 import IconButton from '@material-ui/core/Button';
 import {
   audiovisual,
@@ -19,18 +21,19 @@ import { Grow } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    // position: 'fixed',
-    // top: 0,
+    position: 'fixed',
+    top: 0,
     display: 'flex',
     backgroundColor: theme.palette.primary.main,
     width: '100%',
-    height: 100,
+    minHeight: 68,
     alignItems: 'center',
-    [theme.breakpoints.down('sm')]: {
-      height: 68,
-      justifyContent: 'space-between',
-      zIndex: 99999,
-    },
+    justifyContent: 'space-between',
+    zIndex: 99999,
+    // [theme.breakpoints.down('sm')]: {
+    //   height: 68,
+    //   zIndex: 99999,
+    // },
     // padding: '16px',
     // mobile code
   },
@@ -86,14 +89,25 @@ const Header = (props) => {
               disableTouchRipple={true}
               disableRipple={true}
             >
-              <MenuRoundedIcon color="secondary" />
+              {open ? (
+                <CloseIcon color="secondary" />
+              ) : (
+                <MenuRoundedIcon color="secondary" />
+              )}
             </IconButton>
           );
         }}
         renderMenuItems={(handleClose) => {
           return (
             <>
-              <MenuItem onClick={handleClose}>Home</MenuItem>
+              <MenuItem onClick={handleClose}>
+                <Link
+                  noMargin={true}
+                  path={'/'}
+                  text={'Home'}
+                  color="primary"
+                />
+              </MenuItem>
               <MenuItem onClick={handleToggle}>
                 <Typograpy>Audiovisual</Typograpy>
                 <ListItemIcon>

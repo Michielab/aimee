@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core';
 import * as React from 'react';
 import Layout from '../components/Layout/Layout';
 import Typography from '../components/Typography/Typography';
-import aimeeQueen from '../images/Audiovisual/synchronicity/synchronicity1.jpg';
+import Metropolis from '../images/Audiovisual/synchronicity/synchronicity1.jpg';
 import Link from '../components/Link/Link';
 
 const useStyles = makeStyles((theme) => ({
@@ -23,6 +23,11 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: 'underline',
     color: ' burlywood !important',
     marginLeft: 0,
+  },
+  imageContainer: {
+    [theme.breakpoints.up('sm')]: {
+      width: '50%',
+    },
   },
   image: {
     width: '100%',
@@ -101,8 +106,8 @@ const Index = (props) => {
             </Typography>
           </div>
         </div> */}
-        <div>
-          <img src={aimeeQueen} className={classes.image} />
+        <div className={classes.imageContainer}>
+          <img src={Metropolis} className={classes.image} />
         </div>
         <div className={classes.footer}></div>
       </div>

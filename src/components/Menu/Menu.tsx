@@ -4,6 +4,8 @@ import Grow from '@material-ui/core/Grow';
 import Popper from '@material-ui/core/Popper';
 
 import MenuList from '@material-ui/core/MenuList';
+import Menu from '@material-ui/core/Menu';
+
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -12,18 +14,14 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
     },
     menu: {
-      // backgroundColor: 'red',
-      overflow: 'scroll',
       backgroundColor: theme.palette.primary.main,
       border: 'none',
-      width: '100%',
-      // maxHeight: 'calc(100vh - 68px)',
-      '& > *': {
-        color: theme.palette.primary.contrastText,
+      [theme.breakpoints.down('xs')]: {
+        left: '0px !important',
+        top: '68px !important',
+        width: '100%',
+        maxWidth: '100%',
       },
-      //   display: 'flex',
-      //   flexDirection: 'column',
-      //   alignItems: 'center',
     },
     paper: {
       marginRight: theme.spacing(2),
@@ -53,13 +51,6 @@ export default function MenuListComposition(props) {
     setOpen(false);
   };
 
-  function handleListKeyDown(event: React.KeyboardEvent) {
-    if (event.key === 'Tab') {
-      event.preventDefault();
-      setOpen(false);
-    }
-  }
-
   // return focus to the button when we transitioned from !open -> open
   const prevOpen = React.useRef(open);
   React.useEffect(() => {
@@ -74,45 +65,18 @@ export default function MenuListComposition(props) {
     <div className={classes.root}>
       <div>
         {renderButton(anchorRef, handleToggle, open)}
-        <Popper
+        <Menu
           open={open}
-          anchorEl={containerRef.current}
-          role={undefined}
-          transition={false}
-          disablePortal={true}
-          style={{
-            zIndex: 9999,
-            width: '100%',
-            height: 'calc(100vh - 68px)',
-            overflow: 'auto',
-            top: '68px',
+          elevation={0}
+          classes={{ paper: classes.menu }}
+          anchorEl={containerRef}
+          anchorOrigin={{
+            vertical: 'top',
+            horizontal: 'left',
           }}
-          placement={'bottom-start'}
-          modifiers={{
-            preventOverflow: {
-              enabled: true,
-              boundariesElement: 'scrollParent',
-            },
-          }}
-          popperOptions={{ positionFixed: false }}
         >
-          {({ TransitionProps, placement }) => (
-            // <Grow {...TransitionProps}>
-            <div>
-              <ClickAwayListener onClickAway={handleClose}>
-                <MenuList
-                  autoFocusItem={open}
-                  id="menu-list-grow"
-                  onKeyDown={handleListKeyDown}
-                  classes={{ root: classes.menu }}
-                >
-                  {renderMenuItems(handleClose)}
-                </MenuList>
-              </ClickAwayListener>
-            </div>
-            // </Grow>
-          )}
-        </Popper>
+          {renderMenuItems(handleClose)}
+        </Menu>
       </div>
     </div>
   );

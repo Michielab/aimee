@@ -12,38 +12,42 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexGrow: 1,
     flexDirection: 'column',
+    height: '100vh',
+    opacity: 1,
+    // marginTop: 68,
+    // [theme.breakpoints.up('sm')]: {
+    //   height: '100vh',
+    // },
   },
   container: {
     display: 'flex',
     flexGrow: 1,
+    paddingTop: 68,
   },
   innerContainer: {
     display: 'flex',
     flexGrow: 6,
     justifyContent: 'center',
   },
-  navigation: {
-    display: 'flex',
-    flexGrow: 1,
-    [theme.breakpoints.down('sm')]: {
-      display: 'none',
-    },
-  },
+  // navigation: {
+  //   display: 'flex',
+  //   flexGrow: 1,
+  //   [theme.breakpoints.down('sm')]: {
+  //     display: 'none',
+  //   },
+  // },
 }));
 
 const Layout = (props) => {
   const classes = useStyles();
 
   return (
-    <main className={classes.root}>
+    <div className={classes.root}>
       <Header />
-      <div className={classes.container}>
-        <div className={classes.navigation}>
-          {/* <Navigation handleSetCurrentProject={handleSetCurrentProject} /> */}
-        </div>
+      <main className={classes.container}>
         <div className={classes.innerContainer}>{props.children}</div>
-      </div>
-    </main>
+      </main>
+    </div>
   );
 };
 

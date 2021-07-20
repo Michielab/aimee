@@ -62,6 +62,7 @@ const audiovisual = [
     title: 'Filamental (2019)',
     medium: 'Sound composition. Live performance.',
     link: '/projects/audiovisual/filamental',
+    images: '',
     previewLink:
       'https://www.youtube.com/watch?v=_reO_kHjhFc&ab_channel=JazzExplorer',
     externalLink:
