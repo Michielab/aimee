@@ -1,5 +1,5 @@
 module.exports = {
-  pathPrefix: `/aim-e`,
+  pathPrefix: `/aimee`,
   siteMetadata: {
     title: 'aimee',
   },
