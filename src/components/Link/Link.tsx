@@ -7,18 +7,19 @@ interface CustumLinkInterface extends TypographyProps {
   text?: string;
   path: string;
   external?: boolean;
-  nomargin?: boolean;
+  noMargin?: boolean;
 }
 
 const useStyles = makeStyles((theme) => ({
-  root: ({ nomargin = false }: CustumLinkInterface) => ({
+  root: ({ noMargin = false }: CustumLinkInterface) => ({
     wordBreak: 'break-word',
     whiteSpace: 'normal',
     width: '100%',
-    marginLeft: theme.spacing(3),
-    [theme.breakpoints.down('sm')]: {
-      marginLeft: nomargin ? theme.spacing(0) : theme.spacing(2),
-    },
+    marginLeft: noMargin ? theme.spacing(0) : theme.spacing(2),
+
+    // [theme.breakpoints.down('sm')]: {
+    //   marginLeft: noMargin ? theme.spacing(0) : theme.spacing(2),
+    // },
     '& > a': {
       color: theme.palette.primary.contrastText,
       textDecoration: 'none',
@@ -29,10 +30,10 @@ const useStyles = makeStyles((theme) => ({
 
 const CustomLink = (props: CustumLinkInterface) => {
   const classes = useStyles(props);
-  const { text, path, external, ...rest } = props;
+  const { text, path, external, className, ...rest } = props;
 
   return (
-    <Typography className={classes.root} {...rest}>
+    <Typography className={`${classes.root} ${className}`} {...rest}>
       {external ? (
         <a href={path} target="_blank">
           {text || props.children}

@@ -2,9 +2,11 @@ import * as React from 'react';
 import { ThemeProvider, makeStyles } from '@material-ui/core/styles';
 import theme from '../../theme/Theme';
 import '../../styles/global.css';
+import { Scrollbars } from 'react-custom-scrollbars';
 
 // import components
 import Header from '../Header/Header';
+import HeaderMobile from '../Header/HeaderMobile';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,13 +31,23 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 6,
     justifyContent: 'center',
   },
-  // navigation: {
-  //   display: 'flex',
-  //   flexGrow: 1,
-  //   [theme.breakpoints.down('sm')]: {
-  //     display: 'none',
-  //   },
-  // },
+  mobileHeaderWrapper: {
+    display: 'none',
+    [theme.breakpoints.down('sm')]: {
+      display: 'unset',
+    },
+  },
+  headerWrapper: {
+    display: 'none',
+    [theme.breakpoints.up('md')]: {
+      display: 'unset',
+    },
+  },
+  scrollBar: {
+    [theme.breakpoints.down('sm')]: {
+      // display: 'none',
+    },
+  },
 }));
 
 const Layout = (props) => {
@@ -43,10 +55,17 @@ const Layout = (props) => {
 
   return (
     <div className={classes.root}>
-      <Header />
-      <main className={classes.container}>
-        <div className={classes.innerContainer}>{props.children}</div>
-      </main>
+      <Scrollbars className={classes.scrollBar}>
+        <div className={classes.headerWrapper}>
+          <Header />
+        </div>
+        <div className={classes.mobileHeaderWrapper}>
+          <HeaderMobile />
+        </div>
+        <main className={classes.container}>
+          <div className={classes.innerContainer}>{props.children}</div>
+        </main>
+      </Scrollbars>
     </div>
   );
 };

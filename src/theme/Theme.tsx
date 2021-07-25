@@ -5,6 +5,9 @@ import green from '@material-ui/core/colors/green';
 const theme = createMuiTheme({
   typography: {
     fontFamily: `Montserrat`,
+    button: {
+      textTransform: 'none',
+    },
   },
   palette: {
     primary: {

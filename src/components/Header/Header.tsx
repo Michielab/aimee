@@ -4,10 +4,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Typograpy from '../Typography/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
-import CloseIcon from '@material-ui/icons/Close';
 
-import IconButton from '@material-ui/core/Button';
 import {
   audiovisual,
   texts,
@@ -17,225 +14,224 @@ import {
 
 import Menu from '../Menu/Menu';
 import Link from '../Link/Link';
-import { Button, Grow } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
+  hovered: {
+    backgroundColor: 'rgba(0, 0, 0, 0.04)',
+  },
+  menuOpen: {
+    // paddingRight: 15,
+    // paddingLeft: 15,
+  },
   root: {
     position: 'fixed',
     top: 0,
+    right: 0,
     display: 'flex',
     backgroundColor: theme.palette.primary.main,
     width: '100%',
     minHeight: 68,
     alignItems: 'center',
-    justifyContent: 'space-between',
-    zIndex: 99999,
-    // [theme.breakpoints.down('sm')]: {
-    //   height: 68,
-    //   zIndex: 99999,
-    // },
-    // padding: '16px',
-    // mobile code
+    zIndex: 999,
+    left: 'auto',
+  },
+  buttonName: {
+    paddingLeft: 0,
+  },
+  name: {
+    flexGrow: 1,
+    width: 'unset',
+  },
+  nameWrapper: {
+    marginLeft: theme.spacing(2),
+  },
+  menuItemsWrapper: {
+    display: 'flex',
+    flexGrow: 1,
+    justifyContent: 'flex-end',
+    marginRight: theme.spacing(3),
+  },
+  button: {
+    // borderRadius: 0,
+    '&:hover': {
+      backgroundColor: 'rgba(0, 0, 0, 0.04)',
+      // backgroundColor: 'lightGreen',
+    },
+  },
+  listIcon: {
+    minWidth: theme.spacing(4),
   },
 }));
 
 const Header = (props) => {
   const classes = useStyles();
-  const [openProjects, toggleOpenProjects] = React.useState(false);
-  const [openTexts, toggleOpenTexts] = React.useState(false);
-  const [openCommunityWork, toggleOpenCommunityWork] = React.useState(false);
-  const [openSocialMedia, toggleOpenSocialMedia] = React.useState(false);
-
-  function handleToggle() {
-    toggleOpenProjects(!openProjects);
-  }
-
-  function handleToggleTexts() {
-    toggleOpenTexts(!openTexts);
-  }
-
-  function handleToggleCommunityWork() {
-    toggleOpenCommunityWork(!openCommunityWork);
-  }
-
-  function handleToggleSocialMedia() {
-    toggleOpenSocialMedia(!openSocialMedia);
-  }
-
-  function handleClose() {
-    toggleOpenProjects(false);
-    toggleOpenTexts(false);
-    toggleOpenCommunityWork(false);
-    toggleOpenSocialMedia(false);
-  }
-
+  const [menuOpen, setMenuOpen] = React.useState(false);
   return (
-    <div className={classes.root}>
-      <Link path={'/'} text={'Aimée Theriot Ramos'} color="textSecondary" />
-      {/* <div style={{ display: 'flex' }}>
-        <MenuItem onClick={handleToggle}>
-          <Typograpy>Audiovisual</Typograpy>
-          <ListItemIcon>
-            <ExpandMoreIcon fontSize="small" color="secondary" />
-          </ListItemIcon>
-        </MenuItem>
-        <MenuItem onClick={handleToggle}>
-          <Typograpy>Community and Curatorial work</Typograpy>
-          <ListItemIcon>
-            <ExpandMoreIcon fontSize="small" color="secondary" />
-          </ListItemIcon>
-        </MenuItem>
-        <MenuItem onClick={handleToggle}>
-          <Typograpy>Text</Typograpy>
-          <ListItemIcon>
-            <ExpandMoreIcon fontSize="small" color="secondary" />
-          </ListItemIcon>
-        </MenuItem>
-        <MenuItem onClick={handleToggle}>
-          <Typograpy>Social Media</Typograpy>
-          <ListItemIcon>
-            <ExpandMoreIcon fontSize="small" color="secondary" />
-          </ListItemIcon>
-        </MenuItem>
-        <MenuItem onClick={handleToggle}>
-          <Typograpy>Contact</Typograpy>
-          <ListItemIcon>
-            <ExpandMoreIcon fontSize="small" color="secondary" />
-          </ListItemIcon>
-        </MenuItem>
-      </div> */}
-
-      <Menu
-        handleCloseSubMenu={handleClose}
-        renderButton={(buttonRef, handleToggle, open, handleCloseMenu) => {
-          return (
-            <IconButton
-              ref={buttonRef}
-              aria-controls={open ? 'menu-list-grow' : undefined}
-              aria-haspopup="true"
-              onClick={(e) => {
-                !open ? handleToggle(e) : handleCloseMenu();
-              }}
-              disableTouchRipple={true}
-              disableRipple={true}
-            >
-              {open ? (
-                <CloseIcon color="secondary" />
-              ) : (
-                <MenuRoundedIcon color="secondary" />
-              )}
-            </IconButton>
-          );
-        }}
-        renderMenuItems={(handleClose) => {
-          return (
-            <div>
-              <MenuItem onClick={handleClose}>
-                <Link
-                  nomargin={true}
-                  path={'/'}
-                  text={'Home'}
-                  color="primary"
-                />
-              </MenuItem>
-              <MenuItem onClick={handleToggle}>
+    <div className={[classes.root, menuOpen ? classes.menuOpen : ''].join(' ')}>
+      <div className={classes.nameWrapper}>
+        <Button classes={{ root: classes.buttonName }}>
+          <Link
+            path={'/'}
+            text={'Aimée Theriot Ramos'}
+            color="textSecondary"
+            noMargin={true}
+            className={classes.name}
+          />
+        </Button>
+      </div>
+      <div className={classes.menuItemsWrapper}>
+        <Menu
+          setMenuOpen={setMenuOpen}
+          renderButton={(handleOpen, open, handleCloseMenu) => {
+            return (
+              <Button
+                aria-controls="simple-menu"
+                aria-haspopup="true"
+                onClick={(e) => {
+                  !open ? handleOpen(e) : handleCloseMenu();
+                }}
+                disableTouchRipple={true}
+                disableRipple={true}
+                classes={{
+                  root: [classes.button, open ? classes.hovered : ''].join(' '),
+                }}
+              >
                 <Typograpy>Audiovisual</Typograpy>
-                <ListItemIcon>
+                <ListItemIcon className={classes.listIcon}>
                   <ExpandMoreIcon fontSize="small" color="secondary" />
                 </ListItemIcon>
-              </MenuItem>
-              {openProjects && (
-                <Grow in={openProjects}>
-                  <div>
-                    {audiovisual.map((project) => {
-                      return (
-                        <MenuItem onClick={handleClose}>
-                          <Link
-                            path={project.link}
-                            text={project.title}
-                            color="primary"
-                          />
-                        </MenuItem>
-                      );
-                    })}
-                  </div>
-                </Grow>
-              )}
-              <MenuItem onClick={handleToggleCommunityWork}>
+              </Button>
+            );
+          }}
+          renderMenuItems={(handleClose) => {
+            return audiovisual.map((project) => {
+              return (
+                <MenuItem onClick={handleClose}>
+                  <Link
+                    path={project.link}
+                    text={project.title}
+                    color="primary"
+                  />
+                </MenuItem>
+              );
+            });
+          }}
+        />
+        <Menu
+          renderButton={(handleOpen, open, handleCloseMenu) => {
+            return (
+              <Button
+                aria-controls="simple-menu"
+                aria-haspopup="true"
+                onClick={(e) => {
+                  !open ? handleOpen(e) : handleCloseMenu();
+                }}
+                disableTouchRipple={true}
+                disableRipple={true}
+                classes={{ root: classes.button }}
+              >
                 <Typograpy>Community and Curatorial work</Typograpy>
-                <ListItemIcon>
+                <ListItemIcon className={classes.listIcon}>
                   <ExpandMoreIcon fontSize="small" color="secondary" />
                 </ListItemIcon>
-              </MenuItem>
-              {openCommunityWork && (
-                <Grow in={openCommunityWork}>
-                  <div>
-                    {communityandcuratorialwork.map((project) => {
-                      return (
-                        <MenuItem onClick={handleClose}>
-                          <Link
-                            path={project.link}
-                            text={project.title}
-                            color="primary"
-                          />
-                        </MenuItem>
-                      );
-                    })}
-                  </div>
-                </Grow>
-              )}
-              <MenuItem onClick={handleToggleTexts}>
+              </Button>
+            );
+          }}
+          renderMenuItems={(handleClose) => {
+            return communityandcuratorialwork.map((project) => {
+              return (
+                <MenuItem onClick={handleClose}>
+                  <Link
+                    path={project.link}
+                    text={project.title}
+                    color="primary"
+                  />
+                </MenuItem>
+              );
+            });
+          }}
+        />
+        <Menu
+          renderButton={(handleOpen, open, handleCloseMenu) => {
+            return (
+              <Button
+                aria-controls="simple-menu"
+                aria-haspopup="true"
+                onClick={(e) => {
+                  !open ? handleOpen(e) : handleCloseMenu();
+                }}
+                disableTouchRipple={true}
+                disableRipple={true}
+                classes={{ root: classes.button }}
+              >
                 <Typograpy>Text</Typograpy>
-                <ListItemIcon>
+                <ListItemIcon className={classes.listIcon}>
                   <ExpandMoreIcon fontSize="small" color="secondary" />
                 </ListItemIcon>
-              </MenuItem>
-              {openTexts && (
-                <Grow in={openTexts}>
-                  <div>
-                    {texts.map((project) => {
-                      return (
-                        <MenuItem onClick={handleClose}>
-                          <Link
-                            path={project.link}
-                            text={project.title}
-                            color="primary"
-                          />
-                        </MenuItem>
-                      );
-                    })}
-                  </div>
-                </Grow>
-              )}
-              <MenuItem onClick={handleToggleSocialMedia}>
-                <Typograpy>Social media</Typograpy>
-                <ListItemIcon>
+              </Button>
+            );
+          }}
+          renderMenuItems={(handleClose) => {
+            return texts.map((project) => {
+              return (
+                <MenuItem onClick={handleClose}>
+                  <Link
+                    path={project.link}
+                    text={project.title}
+                    color="primary"
+                  />
+                </MenuItem>
+              );
+            });
+          }}
+        />
+        <Menu
+          renderButton={(handleOpen, open, handleCloseMenu) => {
+            return (
+              <Button
+                aria-controls="simple-menu"
+                aria-haspopup="true"
+                onClick={(e) => {
+                  !open ? handleOpen(e) : handleCloseMenu();
+                }}
+                disableTouchRipple={true}
+                disableRipple={true}
+                classes={{ root: classes.button }}
+              >
+                <Typograpy>Social Media</Typograpy>
+                <ListItemIcon className={classes.listIcon}>
                   <ExpandMoreIcon fontSize="small" color="secondary" />
                 </ListItemIcon>
-              </MenuItem>
-              {openSocialMedia && (
-                <Grow in={openSocialMedia}>
-                  <div>
-                    {socialMedia.map((project) => {
-                      return (
-                        <MenuItem onClick={handleClose}>
-                          <Link
-                            path={project.link}
-                            text={project.title}
-                            color="primary"
-                            external={true}
-                          />
-                        </MenuItem>
-                      );
-                    })}
-                  </div>
-                </Grow>
-              )}
-              <MenuItem onClick={handleClose}>Contact</MenuItem>
-            </div>
-          );
-        }}
-      />
+              </Button>
+            );
+          }}
+          renderMenuItems={(handleClose) => {
+            return socialMedia.map((project) => {
+              return (
+                <MenuItem onClick={handleClose}>
+                  <Link
+                    path={project.link}
+                    text={project.title}
+                    color="primary"
+                  />
+                </MenuItem>
+              );
+            });
+          }}
+        />
+        <div style={{ display: 'flex' }}>
+          <Button classes={{ root: classes.button }}>
+            <Link
+              path={'/'}
+              text={'Contact'}
+              color="primary"
+              external={true}
+              noMargin={true}
+            />
+          </Button>
+        </div>
+      </div>
     </div>
   );
 };
