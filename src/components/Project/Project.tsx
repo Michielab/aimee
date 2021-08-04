@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import ReactPlayer from 'react-player';
 import Typography from '../Typography/Typography';
 import { Document, Page } from 'react-pdf';
 import { useState } from 'react';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -18,9 +19,16 @@ const useStyles = makeStyles((theme) => ({
     '& > :last-child': {
       marginBottom: theme.spacing(3),
     },
+    [theme.breakpoints.up('md')]: {
+      maxWidth: '800px',
+    },
   },
   title: {
-    // marginTop: theme.spacing(3),
+    [theme.breakpoints.up('md')]: {
+      fontWeight: 700,
+      fontSize: '2rem',
+      marginTop: theme.spacing(2),
+    },
   },
   medium: {
     marginTop: theme.spacing(1),
@@ -28,33 +36,41 @@ const useStyles = makeStyles((theme) => ({
   text: {
     marginTop: theme.spacing(3),
     textAlign: 'justify',
+    [theme.breakpoints.up('sm')]: {
+      // width: '50%',
+    },
     // display: 'block',
   },
   playerWrapper: {
-    position: 'relative',
-    paddingTop: '56.25%' /* 720 / 1280 = 0.5625 */,
-    width: '100%',
     marginTop: theme.spacing(3),
+    [theme.breakpoints.down('sm')]: {
+      position: 'relative',
+      paddingTop: '56.25%' /* 720 / 1280 = 0.5625 */,
+      width: '100%',
+      // paddingTop: '3.25%',
+    },
     [theme.breakpoints.up('sm')]: {
-      width: '50%',
+      marginRight: 'auto',
+      marginLeft: 'auto',
     },
   },
   reactPlayer: {
     overflow: 'hidden',
-    position: 'absolute',
-    // [theme.breakpoints.down('sm')]: {
-    // overflow: 'unset',
-    width: '100% !important',
-    height: '100% !important',
-    objectFit: 'contain',
-    top: 0,
-    left: 0,
-    // },
+
+    [theme.breakpoints.down('sm')]: {
+      // overflow: 'unset',
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100% !important',
+      height: '100% !important',
+      objectFit: 'contain',
+    },
   },
   imageContainer: {
     marginTop: theme.spacing(3),
     [theme.breakpoints.up('sm')]: {
-      width: '50%',
+      // width: '50%',
     },
   },
   topMargin: {
@@ -63,6 +79,10 @@ const useStyles = makeStyles((theme) => ({
   image: {
     [theme.breakpoints.down('sm')]: {
       width: '100%',
+    },
+    [theme.breakpoints.up('sm')]: {
+      maxWidth: '50%',
+      // padding: '0px 2px',
     },
   },
   link: {
@@ -76,6 +96,9 @@ const Project = (props) => {
   const classes = useStyles();
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
+  const theme = useTheme();
+  const mediumUp = useMediaQuery(theme.breakpoints.up('md'));
+  const smallUp = useMediaQuery(theme.breakpoints.up('sm'));
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
@@ -89,13 +112,14 @@ const Project = (props) => {
     externalLink,
     images = false,
     pdf = false,
+    type,
   } = props;
 
   console.log('images', images);
   return (
     <div className={classes.container}>
       <Typography
-        variant="subtitle1"
+        variant={smallUp ? 'h5' : mediumUp ? 'h4' : 'subtitle1'}
         color="secondary"
         className={classes.title}
       >
@@ -105,7 +129,7 @@ const Project = (props) => {
         <Typography
           color="secondary"
           className={classes.medium}
-          variant="body2"
+          variant={mediumUp ? 'body1' : 'body2'}
         >
           {medium}
         </Typography>

@@ -77,6 +77,7 @@ const Header = (props) => {
       <Link path={'/'} text={'Aimée Theriot Ramos'} color="textSecondary" />
       <div>
         <Menu
+          elevation={0}
           handleCloseSubMenu={handleClose}
           renderButton={(handleToggle, open, handleCloseMenu) => {
             return (

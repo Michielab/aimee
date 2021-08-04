@@ -30,6 +30,9 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexGrow: 6,
     justifyContent: 'center',
+    [theme.breakpoints.up('sm')]: {
+      // justifyContent: 'unset',
+    },
   },
   mobileHeaderWrapper: {
     display: 'none',
@@ -55,7 +58,7 @@ const Layout = (props) => {
 
   return (
     <div className={classes.root}>
-      <Scrollbars className={classes.scrollBar}>
+      <Scrollbars autoHide className={classes.scrollBar}>
         <div className={classes.headerWrapper}>
           <Header />
         </div>

@@ -35,6 +35,13 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     zIndex: 999,
     left: 'auto',
+    justifyContent: 'center',
+  },
+  itemsWrapper: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    flexGrow: 1,
+    maxWidth: '1200px',
   },
   buttonName: {
     paddingLeft: 0,
@@ -69,167 +76,171 @@ const Header = (props) => {
   const [menuOpen, setMenuOpen] = React.useState(false);
   return (
     <div className={[classes.root, menuOpen ? classes.menuOpen : ''].join(' ')}>
-      <div className={classes.nameWrapper}>
-        <Button classes={{ root: classes.buttonName }}>
-          <Link
-            path={'/'}
-            text={'Aimée Theriot Ramos'}
-            color="textSecondary"
-            noMargin={true}
-            className={classes.name}
-          />
-        </Button>
-      </div>
-      <div className={classes.menuItemsWrapper}>
-        <Menu
-          setMenuOpen={setMenuOpen}
-          renderButton={(handleOpen, open, handleCloseMenu) => {
-            return (
-              <Button
-                aria-controls="simple-menu"
-                aria-haspopup="true"
-                onClick={(e) => {
-                  !open ? handleOpen(e) : handleCloseMenu();
-                }}
-                disableTouchRipple={true}
-                disableRipple={true}
-                classes={{
-                  root: [classes.button, open ? classes.hovered : ''].join(' '),
-                }}
-              >
-                <Typograpy>Audiovisual</Typograpy>
-                <ListItemIcon className={classes.listIcon}>
-                  <ExpandMoreIcon fontSize="small" color="secondary" />
-                </ListItemIcon>
-              </Button>
-            );
-          }}
-          renderMenuItems={(handleClose) => {
-            return audiovisual.map((project) => {
-              return (
-                <MenuItem onClick={handleClose}>
-                  <Link
-                    path={project.link}
-                    text={project.title}
-                    color="primary"
-                  />
-                </MenuItem>
-              );
-            });
-          }}
-        />
-        <Menu
-          renderButton={(handleOpen, open, handleCloseMenu) => {
-            return (
-              <Button
-                aria-controls="simple-menu"
-                aria-haspopup="true"
-                onClick={(e) => {
-                  !open ? handleOpen(e) : handleCloseMenu();
-                }}
-                disableTouchRipple={true}
-                disableRipple={true}
-                classes={{ root: classes.button }}
-              >
-                <Typograpy>Community and Curatorial work</Typograpy>
-                <ListItemIcon className={classes.listIcon}>
-                  <ExpandMoreIcon fontSize="small" color="secondary" />
-                </ListItemIcon>
-              </Button>
-            );
-          }}
-          renderMenuItems={(handleClose) => {
-            return communityandcuratorialwork.map((project) => {
-              return (
-                <MenuItem onClick={handleClose}>
-                  <Link
-                    path={project.link}
-                    text={project.title}
-                    color="primary"
-                  />
-                </MenuItem>
-              );
-            });
-          }}
-        />
-        <Menu
-          renderButton={(handleOpen, open, handleCloseMenu) => {
-            return (
-              <Button
-                aria-controls="simple-menu"
-                aria-haspopup="true"
-                onClick={(e) => {
-                  !open ? handleOpen(e) : handleCloseMenu();
-                }}
-                disableTouchRipple={true}
-                disableRipple={true}
-                classes={{ root: classes.button }}
-              >
-                <Typograpy>Text</Typograpy>
-                <ListItemIcon className={classes.listIcon}>
-                  <ExpandMoreIcon fontSize="small" color="secondary" />
-                </ListItemIcon>
-              </Button>
-            );
-          }}
-          renderMenuItems={(handleClose) => {
-            return texts.map((project) => {
-              return (
-                <MenuItem onClick={handleClose}>
-                  <Link
-                    path={project.link}
-                    text={project.title}
-                    color="primary"
-                  />
-                </MenuItem>
-              );
-            });
-          }}
-        />
-        <Menu
-          renderButton={(handleOpen, open, handleCloseMenu) => {
-            return (
-              <Button
-                aria-controls="simple-menu"
-                aria-haspopup="true"
-                onClick={(e) => {
-                  !open ? handleOpen(e) : handleCloseMenu();
-                }}
-                disableTouchRipple={true}
-                disableRipple={true}
-                classes={{ root: classes.button }}
-              >
-                <Typograpy>Social Media</Typograpy>
-                <ListItemIcon className={classes.listIcon}>
-                  <ExpandMoreIcon fontSize="small" color="secondary" />
-                </ListItemIcon>
-              </Button>
-            );
-          }}
-          renderMenuItems={(handleClose) => {
-            return socialMedia.map((project) => {
-              return (
-                <MenuItem onClick={handleClose}>
-                  <Link
-                    path={project.link}
-                    text={project.title}
-                    color="primary"
-                  />
-                </MenuItem>
-              );
-            });
-          }}
-        />
-        <div style={{ display: 'flex' }}>
-          <Button classes={{ root: classes.button }}>
+      <div className={classes.itemsWrapper}>
+        <div className={classes.nameWrapper}>
+          <Button classes={{ root: classes.buttonName }}>
             <Link
               path={'/'}
-              text={'Contact'}
-              color="primary"
-              external={true}
+              text={'Aimée Theriot Ramos'}
+              color="textSecondary"
               noMargin={true}
+              className={classes.name}
             />
           </Button>
+        </div>
+        <div className={classes.menuItemsWrapper}>
+          <Menu
+            setMenuOpen={setMenuOpen}
+            renderButton={(handleOpen, open, handleCloseMenu) => {
+              return (
+                <Button
+                  aria-controls="simple-menu"
+                  aria-haspopup="true"
+                  onClick={(e) => {
+                    !open ? handleOpen(e) : handleCloseMenu();
+                  }}
+                  disableTouchRipple={true}
+                  disableRipple={true}
+                  classes={{
+                    root: [classes.button, open ? classes.hovered : ''].join(
+                      ' '
+                    ),
+                  }}
+                >
+                  <Typograpy>Audiovisual</Typograpy>
+                  <ListItemIcon className={classes.listIcon}>
+                    <ExpandMoreIcon fontSize="small" color="secondary" />
+                  </ListItemIcon>
+                </Button>
+              );
+            }}
+            renderMenuItems={(handleClose) => {
+              return audiovisual.map((project) => {
+                return (
+                  <MenuItem onClick={handleClose}>
+                    <Link
+                      path={project.link}
+                      text={project.title}
+                      color="primary"
+                    />
+                  </MenuItem>
+                );
+              });
+            }}
+          />
+          <Menu
+            renderButton={(handleOpen, open, handleCloseMenu) => {
+              return (
+                <Button
+                  aria-controls="simple-menu"
+                  aria-haspopup="true"
+                  onClick={(e) => {
+                    !open ? handleOpen(e) : handleCloseMenu();
+                  }}
+                  disableTouchRipple={true}
+                  disableRipple={true}
+                  classes={{ root: classes.button }}
+                >
+                  <Typograpy>Community and Curatorial work</Typograpy>
+                  <ListItemIcon className={classes.listIcon}>
+                    <ExpandMoreIcon fontSize="small" color="secondary" />
+                  </ListItemIcon>
+                </Button>
+              );
+            }}
+            renderMenuItems={(handleClose) => {
+              return communityandcuratorialwork.map((project) => {
+                return (
+                  <MenuItem onClick={handleClose}>
+                    <Link
+                      path={project.link}
+                      text={project.title}
+                      color="primary"
+                    />
+                  </MenuItem>
+                );
+              });
+            }}
+          />
+          <Menu
+            renderButton={(handleOpen, open, handleCloseMenu) => {
+              return (
+                <Button
+                  aria-controls="simple-menu"
+                  aria-haspopup="true"
+                  onClick={(e) => {
+                    !open ? handleOpen(e) : handleCloseMenu();
+                  }}
+                  disableTouchRipple={true}
+                  disableRipple={true}
+                  classes={{ root: classes.button }}
+                >
+                  <Typograpy>Text</Typograpy>
+                  <ListItemIcon className={classes.listIcon}>
+                    <ExpandMoreIcon fontSize="small" color="secondary" />
+                  </ListItemIcon>
+                </Button>
+              );
+            }}
+            renderMenuItems={(handleClose) => {
+              return texts.map((project) => {
+                return (
+                  <MenuItem onClick={handleClose}>
+                    <Link
+                      path={project.link}
+                      text={project.title}
+                      color="primary"
+                    />
+                  </MenuItem>
+                );
+              });
+            }}
+          />
+          <Menu
+            renderButton={(handleOpen, open, handleCloseMenu) => {
+              return (
+                <Button
+                  aria-controls="simple-menu"
+                  aria-haspopup="true"
+                  onClick={(e) => {
+                    !open ? handleOpen(e) : handleCloseMenu();
+                  }}
+                  disableTouchRipple={true}
+                  disableRipple={true}
+                  classes={{ root: classes.button }}
+                >
+                  <Typograpy>Social Media</Typograpy>
+                  <ListItemIcon className={classes.listIcon}>
+                    <ExpandMoreIcon fontSize="small" color="secondary" />
+                  </ListItemIcon>
+                </Button>
+              );
+            }}
+            renderMenuItems={(handleClose) => {
+              return socialMedia.map((project) => {
+                return (
+                  <MenuItem onClick={handleClose}>
+                    <Link
+                      path={project.link}
+                      text={project.title}
+                      color="primary"
+                    />
+                  </MenuItem>
+                );
+              });
+            }}
+          />
+          <div style={{ display: 'flex' }}>
+            <Button classes={{ root: classes.button }}>
+              <Link
+                path={'/'}
+                text={'Contact'}
+                color="primary"
+                external={true}
+                noMargin={true}
+              />
+            </Button>
+          </div>
         </div>
       </div>
     </div>

@@ -50,6 +50,7 @@ const audiovisual = [
       'Voice, sound, technology and binaries: an audio essay featuring Sasha Geffen (2021)',
     medium: '',
     link: '/projects/audiovisual/soundsbeyondbinaries',
+    type: 'audio',
     previewLink: 'https://soundcloud.com/radio-rietveld/sounds-beyond-binaries',
     externalLink:
       'https://www.extraintra.nl/article/voice-sound-technology-and-binaries-an-audio-essay-featuring-sasha-geffen',
@@ -198,6 +199,7 @@ const texts = [
     medium: '',
     link: '/projects/text/eroticlistening',
     images: [Erotic1, Erotic2, Erotic3],
+    type: 'audio',
     previewLink:
       'https://soundcloud.com/aimeetheriot/pop-the-sound-of-a-bursting-bubble',
     externalLink:
