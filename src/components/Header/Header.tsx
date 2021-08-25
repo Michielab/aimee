@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexGrow: 1,
     justifyContent: 'flex-end',
-    marginRight: theme.spacing(3),
+    marginRight: theme.spacing(2),
   },
   button: {
     // borderRadius: 0,
@@ -68,15 +68,15 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   recordingButton: {
-    paddingRight: 20,
-    '&:hover': {
-      backgroundColor: 'rgba(0, 0, 0, 0.04)',
-      // backgroundColor: 'lightGreen',
-    },
+    // paddingRight: theme.spacing(1),
+    // '&:hover': {
+    //   backgroundColor: 'rgba(0, 0, 0, 0.04)',
+    //   // backgroundColor: 'lightGreen',
+    // },
   },
 
   listIcon: {
-    minWidth: theme.spacing(4),
+    minWidth: theme.spacing(2.5),
   },
 }));
 
@@ -98,14 +98,7 @@ const Header = (props) => {
           </Button>
         </div>
         <div className={classes.menuItemsWrapper}>
-          <MenuWithWorkItems isDesktop={true} text="selection of art works" />
-          <MenuWithWorkItems
-            isDesktop={true}
-            text="community and curatorial work"
-          />
-          <MenuWithWorkItems isDesktop={true} text="written" />
-          <MenuWithWorkItems isDesktop={true} text="recording" />
-          {/* <Menu
+          <Menu
             setMenuOpen={setMenuOpen}
             renderButton={(handleOpen, open, handleCloseMenu) => {
               return (
@@ -222,7 +215,7 @@ const Header = (props) => {
                 noMargin={true}
               />
             </Button>
-          </div> */}
+          </div>
           {/* <Menu
             renderButton={(handleOpen, open, handleCloseMenu) => {
               return (

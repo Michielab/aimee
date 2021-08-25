@@ -34,15 +34,16 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(1),
   },
   text: {
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(2),
     textAlign: 'justify',
+    whiteSpace: 'pre-wrap',
     [theme.breakpoints.up('sm')]: {
       // width: '50%',
     },
     // display: 'block',
   },
   playerWrapper: {
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(2),
     // [theme.breakpoints.up('sm')]: {
     position: 'relative',
     paddingTop: '56.25%' /* 720 / 1280 = 0.5625 */,
@@ -68,7 +69,7 @@ const useStyles = makeStyles((theme) => ({
     // },
   },
   imageContainer: {
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(2),
     [theme.breakpoints.up('sm')]: {
       textAlign: 'center',
       // width: '50%',
@@ -90,7 +91,7 @@ const useStyles = makeStyles((theme) => ({
   link: {
     display: 'block',
     color: theme.palette.primary.contrastText,
-    marginBottom: theme.spacing(3),
+    marginBottom: theme.spacing(2),
   },
 }));
 
@@ -150,10 +151,10 @@ const Project = (props) => {
       )}
       {images && (
         <div
-          // className={`${classes.imageContainer} ${
-          //   previewLink ? classes.topMargin : ''
-          // }`}
-          className={classes.imageContainer}
+          className={`${classes.imageContainer} ${
+            previewLink ? classes.topMargin : ''
+          }`}
+          // className={classes.imageContainer}
         >
           {images.map((img) => {
             return <img key={img} src={img} className={classes.image} />;

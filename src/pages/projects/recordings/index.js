@@ -10,7 +10,12 @@ const useStyles = makeStyles((theme) => ({
   container: {
     display: 'flex',
     flexDirection: 'column',
+    [theme.breakpoints.down('sm')]: {
+      padding: ' 0px 16px',
+    },
+
     // marginTop: theme.spacing(3),
+    // alignItems: 'center',
   },
   containerRecording: {
     marginTop: theme.spacing(3),
@@ -21,6 +26,34 @@ const useStyles = makeStyles((theme) => ({
       fontSize: '2rem',
       marginTop: theme.spacing(2),
     },
+  },
+  imageContainer: {
+    marginTop: theme.spacing(1),
+    // width: 300,
+    // position: 'relative',
+    // paddingTop: '56.25%' /* 720 / 1280 = 0.5625 */,
+    // width: '100%',
+  },
+  image: {
+    objectFit: 'fill',
+    height: 200,
+    width: 200,
+    textAlign: 'center',
+    // position: 'absolute',
+    // top: 0,
+    // left: 0,
+    // width: '100% !important',
+    // height: '100% !important',
+    // objectFit: 'contain',
+    // [theme.breakpoints.down('sm')]: {
+    //   width: '100%',
+    // },
+    // [theme.breakpoints.up('sm')]: {
+    //   maxWidth: '100%',
+    //   objectFit: 'contain',
+    //   marginTop: theme.spacing(2),
+    //   // padding: '0px 2px',
+    // },
   },
   link: {
     textDecoration: 'underline',
@@ -37,13 +70,6 @@ const Recordings = (props) => {
   return (
     <Layout>
       <div>
-        <Typography
-          variant={smallUp ? 'h5' : mediumUp ? 'h4' : 'subtitle1'}
-          color="secondary"
-          className={classes.title}
-        >
-          Recordings
-        </Typography>
         <div className={classes.container}>
           {recordings.map((recording) => {
             return (
@@ -53,6 +79,9 @@ const Recordings = (props) => {
                 >
                   {recording.title}
                 </Typography>
+                <div className={classes.imageContainer}>
+                  <img src={recording.image} className={classes.image} />
+                </div>
                 <Link
                   noMargin={true}
                   path={recording.externalLink}
@@ -63,7 +92,6 @@ const Recordings = (props) => {
                 </Link>
               </div>
             );
-            // return <Project {...recording} key={recording.id} />;
           })}
         </div>
       </div>

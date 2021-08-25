@@ -50,6 +50,11 @@ import ofWomanBook01 from '../../images/Text/ofWoman/ofWomanBook01.jpg';
 import ofWomanBook02 from '../../images/Text/ofWoman/ofWomanBook02.jpg';
 import ofWomanBook03 from '../../images/Text/ofWoman/ofWomanBook03.jpg';
 
+import CaducRecordings from '../../images/Recordings/CaducRecords.jpg';
+import CampoAbierto from '../../images/Recordings/CampoAbierto.jpg';
+import FilamentalMagdaMayas from '../../images/Recordings/FilamentalMagdaMayas.jpg';
+import KarantanTapes from '../../images/Recordings/KarantanTapes.jpg';
+
 const audiovisual = [
   {
     id: 1,
@@ -59,9 +64,7 @@ const audiovisual = [
     images: [Pop1, Pop2, Pop3, Pop4, Pop5, Pop6],
     previewLink: '',
     externalLink: '',
-    text: `Somewhere between a silent concert, a performative reading and a live ASMR
-    session,this listening experience reflects on the idea of bubble formation as a form of solidarity in a world that is at once globalized and atomized. Through the very intimate and introspective act of listening, this performance is a meditation on the ways in which subjectivity is not only created within, but through coming in contact with other bodies​ —​ ​a process of contamination​—​reflecting on the ambivalence of a time when massive protests in show of solidarity happen at the same time as
-    self-isolation mandates.`,
+    text: `Somewhere between a silent concert, a performative reading and a live ASMR session,this listening experience reflects on the idea of bubble formation as a form of solidarity in a world that is at once globalized and atomized. Through the very intimate and introspective act of listening, this performance is a meditation on the ways in which subjectivity is not only created within, but through coming in contact with other bodies​ —​ ​a process of contamination​—​reflecting on the ambivalence of a time when massive protests in show of solidarity happen at the same time as self-isolation mandates.`,
     // subText: `Note: This performance was meant to happen at Het Hem but since I couldn’t
     // be there after testing positive for covid, this is a version of the live performance I did in my room which was streamed to the audience at Het Hem. The piece is meant to be heard on headphones. This is early low-quality documentation taken with phone cameras as this performance happened recently on Oct 30th and official documentation is pending.`,
   },
@@ -115,8 +118,7 @@ const audiovisual = [
       'https://www.youtube.com/watch?v=142_oU5FSd8&ab_channel=AimeeTheriot-Ramos',
     // externalLink:
     //   'https://www.youtube.com/watch?v=142_oU5FSd8&ab_channel=AimeeTheriot-Ramos',
-    text: `Parting from ASMR aesthetics, this experimental video essay dwells on the idea of sound as a material medium and explores the tactility of the sonic. Starting from the concept of the abject in the form of spit and saliva, I try to think about the boundaries of the Self and the Other, and what comes through them as a cross-contamination of our own subjectivities. The sound was made by recording the foam material seen in the video with binaural microphones. The video was entirely made with a smartphone, by using a screen recorder and manipulating it through touch. It is
-    meant to be seen as vertical video on a smartphone and headphones.`,
+    text: `Parting from ASMR aesthetics, this experimental video essay dwells on the idea of sound as a material medium and explores the tactility of the sonic. Starting from the concept of the abject in the form of spit and saliva, I try to think about the boundaries of the Self and the Other, and what comes through them as a cross-contamination of our own subjectivities. The sound was made by recording the foam material seen in the video with binaural microphones. The video was entirely made with a smartphone, by using a screen recorder and manipulating it through touch. It is meant to be seen as vertical video on a smartphone and headphones.`,
   },
   {
     id: 6,
@@ -263,27 +265,12 @@ const texts = [
     title: 'Masters Thesis The Big Ears of Big Data',
     medium: '',
     link: '/projects/text/thesis',
-    images: [],
+    images: '',
     previewLink: '',
     externalLink:
       'https://www.academia.edu/45224922/The_Big_Ears_of_Big_Data_Listening_in_the_Digital_Control_Society',
     externalLinkTitle: 'Link to full Thesis',
-    text: `Abstract\nIn a world moved by communication , listening — a fundamental part of the
-            communication process broadly understood as the act of decoding information — is
-            something that is alluded to all the time. This research project is a close examination
-            on the ways in which listening is instrumentalized in today’s communication-driven
-            socio-political climate. Parting from a close analysis of the Panopticon and the
-            Panacousticon, we examine the ways in which today’s power mechanisms resemble
-            a more aural (as opposed to visual) way of controlling its subjects. By taking a critical
-            look at the human-machine communication process and commenting on current
-            issues such as the Google assistant eavesdropping scandal, this research explores
-            the foundations and socio-political implications of listening algorithms that run apps
-            like Shazam and Spotify, or marketing tools like social media listening. Finally, this
-            paper stresses the need to better understand the task of listening and its relation to
-            the formation of co-subjectivities, and concludes by proposing ways to “muddy up
-            the algorithm” in order to resist the instrumentalization and weaponization of the task
-            of listening.
-`,
+    text: `Abstract\nIn a world moved by communication , listening — a fundamental part of the communication process broadly understood as the act of decoding information — is something that is alluded to all the time. This research project is a close examination on the ways in which listening is instrumentalized in today’s communication-driven socio-political climate. Parting from a close analysis of the Panopticon and the Panacousticon, we examine the ways in which today’s power mechanisms resemble a more aural (as opposed to visual) way of controlling its subjects. By taking a critical look at the human-machine communication process and commenting on current issues such as the Google assistant eavesdropping scandal, this research explores the foundations and socio-political implications of listening algorithms that run apps like Shazam and Spotify, or marketing tools like social media listening. Finally, this paper stresses the need to better understand the task of listening and its relation to the formation of co-subjectivities, and concludes by proposing ways to “muddy up the algorithm” in order to resist the instrumentalization and weaponization of the task of listening.`,
   },
 ];
 
@@ -292,12 +279,14 @@ const recordings = [
     id: 1,
     title: ' #3 from Karantän Tapes',
     externalLink: 'https://giktrecords.bandcamp.com/track/3',
+    image: KarantanTapes,
     text: '',
   },
   {
     id: 2,
     title: 'Magda Mayas’ Filamental Ensemble by Relative Pitch Records',
     externalLink: 'https://relativepitchrecords.bandcamp.com/album/confluence',
+    image: FilamentalMagdaMayas,
     text: '',
   },
   {
@@ -305,6 +294,7 @@ const recordings = [
     title: 'Grado de Potencia #1 from Caduc records ',
     externalLink:
       'https://www.discogs.com/es/Santiago-Astaburuaga-Grado-De-Potencia-1/release/8894266',
+    image: CaducRecordings,
     text: '',
   },
   {
@@ -312,6 +302,7 @@ const recordings = [
     title: 'Dúos en cinta from Campo Abierto',
     externalLink:
       'https://www.discogs.com/es/Aim%C3%A9e-Theriot-Alejandro-Tux-D%C3%BAos-En-Cinta-04/release/10792971',
+    image: CampoAbierto,
     text: '',
   },
   {

@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
   },
   headerWrapper: {
     display: 'none',
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('md')]: {
       display: 'unset',
     },
   },
