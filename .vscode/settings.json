@@ -1,7 +1,0 @@
-{
-    "editor.formatOnSave": true,
-    "search.useIgnoreFiles": true,
-    "search.exclude": {
-        "**/node_modules": true,
-    },
-}

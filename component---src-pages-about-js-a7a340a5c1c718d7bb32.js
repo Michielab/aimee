@@ -1,0 +1,2 @@
+(self.webpackChunkaimee=self.webpackChunkaimee||[]).push([[682],{5518:function(e,t,n){"use strict";n.r(t);var u=n(7294),l=n(6285);t.default=function(e){return u.createElement(l.Z,null,u.createElement("div",null,"test"))}}}]);
+//# sourceMappingURL=component---src-pages-about-js-a7a340a5c1c718d7bb32.js.map

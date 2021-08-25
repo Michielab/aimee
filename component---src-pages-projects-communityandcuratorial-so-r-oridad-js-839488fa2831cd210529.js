@@ -1,0 +1,2 @@
+(self.webpackChunkaimee=self.webpackChunkaimee||[]).push([[201],{6159:function(e,n,t){"use strict";t.r(n);var a=t(7294),u=t(6285),r=t(5810),c=t(1437);n.default=function(){var e=c.Xh[1];return a.createElement(u.Z,null,a.createElement(r.Z,e))}}}]);
+//# sourceMappingURL=component---src-pages-projects-communityandcuratorial-so-r-oridad-js-839488fa2831cd210529.js.map

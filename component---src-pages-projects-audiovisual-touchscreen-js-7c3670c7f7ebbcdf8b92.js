@@ -1,0 +1,2 @@
+(self.webpackChunkaimee=self.webpackChunkaimee||[]).push([[353],{2036:function(e,n,t){"use strict";t.r(n);var a=t(7294),u=t(6285),r=t(5810),c=t(1437);n.default=function(e){var n=c.iG[4];return a.createElement(u.Z,null,a.createElement(r.Z,n))}}}]);
+//# sourceMappingURL=component---src-pages-projects-audiovisual-touchscreen-js-7c3670c7f7ebbcdf8b92.js.map
