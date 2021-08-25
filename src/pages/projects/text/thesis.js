@@ -4,7 +4,7 @@ import Project from '../../../components/Project/Project';
 import { texts } from '../../../components/Projects/ProjectsData';
 
 const BaseComponent = () => {
-  const project = texts[3];
+  const project = texts[5];
   return (
     <Layout>
       <Project {...project} />

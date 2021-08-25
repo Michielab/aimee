@@ -4,7 +4,7 @@ import Project from '../../../components/Project/Project';
 import { audiovisual } from '../../../components/Projects/ProjectsData';
 
 const SoundsBeyondBinaries = (props) => {
-  const project = audiovisual[0];
+  const project = audiovisual[3];
   return (
     <Layout>
       <Project {...project} />

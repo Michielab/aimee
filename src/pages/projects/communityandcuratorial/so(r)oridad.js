@@ -4,7 +4,7 @@ import Project from '../../../components/Project/Project';
 import { communityandcuratorialwork } from '../../../components/Projects/ProjectsData';
 
 const BaseComponent = () => {
-  const project = communityandcuratorialwork[2];
+  const project = communityandcuratorialwork[1];
   return (
     <Layout>
       <Project {...project} />

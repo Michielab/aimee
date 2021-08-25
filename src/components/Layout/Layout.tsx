@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     height: '100vh',
     opacity: 1,
     // marginTop: 68,
-    // [theme.breakpoints.up('sm')]: {
+    // [theme.breakpoints.down('sm')]: {
     //   height: '100vh',
     // },
   },
@@ -30,8 +30,8 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexGrow: 6,
     justifyContent: 'center',
-    [theme.breakpoints.up('sm')]: {
-      // justifyContent: 'unset',
+    [theme.breakpoints.down('sm')]: {
+      paddingBottom: theme.spacing(4),
     },
   },
   mobileHeaderWrapper: {
@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
   },
   headerWrapper: {
     display: 'none',
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up('sm')]: {
       display: 'unset',
     },
   },

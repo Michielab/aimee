@@ -19,13 +19,13 @@ const useStyles = makeStyles((theme) => ({
     '& > :last-child': {
       marginBottom: theme.spacing(3),
     },
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up('sm')]: {
       maxWidth: '800px',
     },
   },
   title: {
     [theme.breakpoints.up('md')]: {
-      fontWeight: 700,
+      fontWeight: 600,
       fontSize: '2rem',
       marginTop: theme.spacing(2),
     },
@@ -43,33 +43,34 @@ const useStyles = makeStyles((theme) => ({
   },
   playerWrapper: {
     marginTop: theme.spacing(3),
-    [theme.breakpoints.down('sm')]: {
-      position: 'relative',
-      paddingTop: '56.25%' /* 720 / 1280 = 0.5625 */,
-      width: '100%',
-      // paddingTop: '3.25%',
-    },
-    [theme.breakpoints.up('sm')]: {
-      marginRight: 'auto',
-      marginLeft: 'auto',
-    },
+    // [theme.breakpoints.up('sm')]: {
+    position: 'relative',
+    paddingTop: '56.25%' /* 720 / 1280 = 0.5625 */,
+    width: '100%',
+    // paddingTop: '3.25%',
+    // },
+    // [theme.breakpoints.up('sm')]: {
+    //   marginRight: 'auto',
+    //   marginLeft: 'auto',
+    // },
   },
   reactPlayer: {
     overflow: 'hidden',
 
-    [theme.breakpoints.down('sm')]: {
-      // overflow: 'unset',
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      width: '100% !important',
-      height: '100% !important',
-      objectFit: 'contain',
-    },
+    // [theme.breakpoints.up('sm')]: {
+    // overflow: 'unset',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100% !important',
+    height: '100% !important',
+    objectFit: 'contain',
+    // },
   },
   imageContainer: {
     marginTop: theme.spacing(3),
     [theme.breakpoints.up('sm')]: {
+      textAlign: 'center',
       // width: '50%',
     },
   },
@@ -81,7 +82,8 @@ const useStyles = makeStyles((theme) => ({
       width: '100%',
     },
     [theme.breakpoints.up('sm')]: {
-      maxWidth: '50%',
+      maxWidth: '100%',
+      objectFit: 'contain',
       // padding: '0px 2px',
     },
   },
@@ -110,6 +112,9 @@ const Project = (props) => {
     medium,
     subText,
     externalLink,
+    externalLinkTitle,
+    externalLinkTwo,
+    externalLinkTitleTwo,
     images = false,
     pdf = false,
     type,
@@ -143,6 +148,19 @@ const Project = (props) => {
           />
         </div>
       )}
+      {images && (
+        <div
+          // className={`${classes.imageContainer} ${
+          //   previewLink ? classes.topMargin : ''
+          // }`}
+          className={classes.imageContainer}
+        >
+          {images.map((img) => {
+            return <img key={img} src={img} className={classes.image} />;
+          })}
+        </div>
+      )}
+
       {/* {pdf && (
         <iframe
           src={`https://drive.google.com/viewerng/viewer?url=${'https://cc-catalogo.org/site/pdf/Misofonia00-PDF.pdf'}?pid=explorer&efh=false&a=v&chrome=false&embedded=true`}
@@ -156,18 +174,6 @@ const Project = (props) => {
         //   <Page pageNumber={pageNumber} />
         // </Document>
       )} */}
-      {images && (
-        <div
-          // className={`${classes.imageContainer} ${
-          //   previewLink ? classes.topMargin : ''
-          // }`}
-          className={classes.imageContainer}
-        >
-          {images.map((img) => {
-            return <img key={img} src={img} className={classes.image} />;
-          })}
-        </div>
-      )}
 
       <Typography color="secondary" className={classes.text}>
         {text}
@@ -182,7 +188,17 @@ const Project = (props) => {
           {
             <a href={externalLink} target="_blank" className={classes.link}>
               {/* External link:  */}
-              {title}
+              {externalLinkTitle ? externalLinkTitle : title}
+            </a>
+          }
+        </Typography>
+      )}
+      {externalLinkTwo && (
+        <Typography color="secondary">
+          {
+            <a href={externalLink} target="_blank" className={classes.link}>
+              {/* External link:  */}
+              {externalLinkTitleTwo ? externalLinkTitleTwo : title}
             </a>
           }
         </Typography>

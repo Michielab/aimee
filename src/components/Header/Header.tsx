@@ -4,6 +4,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Typograpy from '../Typography/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
+import MenuWithWorkItems from './MenuWithWorkItems';
 
 import {
   audiovisual,
@@ -66,6 +67,14 @@ const useStyles = makeStyles((theme) => ({
       // backgroundColor: 'lightGreen',
     },
   },
+  recordingButton: {
+    paddingRight: 20,
+    '&:hover': {
+      backgroundColor: 'rgba(0, 0, 0, 0.04)',
+      // backgroundColor: 'lightGreen',
+    },
+  },
+
   listIcon: {
     minWidth: theme.spacing(4),
   },
@@ -81,7 +90,7 @@ const Header = (props) => {
           <Button classes={{ root: classes.buttonName }}>
             <Link
               path={'/'}
-              text={'Aimée Theriot Ramos'}
+              text={'aimée theriot-ramos'}
               color="textSecondary"
               noMargin={true}
               className={classes.name}
@@ -89,7 +98,8 @@ const Header = (props) => {
           </Button>
         </div>
         <div className={classes.menuItemsWrapper}>
-          <Menu
+          <MenuWithWorkItems isDesktop={true} />
+          {/* <Menu
             setMenuOpen={setMenuOpen}
             renderButton={(handleOpen, open, handleCloseMenu) => {
               return (
@@ -107,7 +117,7 @@ const Header = (props) => {
                     ),
                   }}
                 >
-                  <Typograpy>Audiovisual</Typograpy>
+                  <Typograpy>selection of art works</Typograpy>
                   <ListItemIcon className={classes.listIcon}>
                     <ExpandMoreIcon fontSize="small" color="secondary" />
                   </ListItemIcon>
@@ -141,7 +151,7 @@ const Header = (props) => {
                   disableRipple={true}
                   classes={{ root: classes.button }}
                 >
-                  <Typograpy>Community and Curatorial work</Typograpy>
+                  <Typograpy>community and curatorial work </Typograpy>
                   <ListItemIcon className={classes.listIcon}>
                     <ExpandMoreIcon fontSize="small" color="secondary" />
                   </ListItemIcon>
@@ -175,7 +185,7 @@ const Header = (props) => {
                   disableRipple={true}
                   classes={{ root: classes.button }}
                 >
-                  <Typograpy>Text</Typograpy>
+                  <Typograpy>written</Typograpy>
                   <ListItemIcon className={classes.listIcon}>
                     <ExpandMoreIcon fontSize="small" color="secondary" />
                   </ListItemIcon>
@@ -196,6 +206,17 @@ const Header = (props) => {
               });
             }}
           />
+          <div style={{ display: 'flex' }}>
+            <Button classes={{ root: classes.recordingButton }}>
+              <Link
+                path={'/projects/recordings'}
+                text={'recordings'}
+                color="primary"
+                external={false}
+                noMargin={true}
+              />
+            </Button>
+          </div> */}
           <Menu
             renderButton={(handleOpen, open, handleCloseMenu) => {
               return (
@@ -209,7 +230,7 @@ const Header = (props) => {
                   disableRipple={true}
                   classes={{ root: classes.button }}
                 >
-                  <Typograpy>Social Media</Typograpy>
+                  <Typograpy>social media</Typograpy>
                   <ListItemIcon className={classes.listIcon}>
                     <ExpandMoreIcon fontSize="small" color="secondary" />
                   </ListItemIcon>
@@ -224,6 +245,7 @@ const Header = (props) => {
                       path={project.link}
                       text={project.title}
                       color="primary"
+                      external={true}
                     />
                   </MenuItem>
                 );
@@ -231,12 +253,23 @@ const Header = (props) => {
             }}
           />
           <div style={{ display: 'flex' }}>
+            <Button classes={{ root: classes.recordingButton }}>
+              <Link
+                path={'/about'}
+                text={'about'}
+                color="primary"
+                external={false}
+                noMargin={true}
+              />
+            </Button>
+          </div>
+          <div style={{ display: 'flex' }}>
             <Button classes={{ root: classes.button }}>
               <Link
-                path={'/'}
-                text={'Contact'}
+                path={'/contact'}
+                text={'contact'}
                 color="primary"
-                external={true}
+                external={false}
                 noMargin={true}
               />
             </Button>

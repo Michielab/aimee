@@ -18,6 +18,7 @@ import {
 import Menu from '../Menu/Menu';
 import Link from '../Link/Link';
 import { Grow } from '@material-ui/core';
+import MenuWithWorkItems from './MenuWithWorkItems';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,15 +31,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'space-between',
     zIndex: 99999,
-    // [theme.breakpoints.down('sm')]: {
-    //   height: 68,
-    //   zIndex: 99999,
-    // },
-    // padding: '16px',
-    // mobile code
-  },
-  button: {
-    // textTransform: 'lowercase',
   },
 }));
 
@@ -74,9 +66,9 @@ const Header = (props) => {
 
   return (
     <div className={classes.root}>
-      <Link path={'/'} text={'Aimée Theriot Ramos'} color="textSecondary" />
+      <Link path={'/'} text={'aimée theriot-ramos'} color="textSecondary" />
       <div>
-        <Menu
+        {/* <Menu
           elevation={0}
           handleCloseSubMenu={handleClose}
           renderButton={(handleToggle, open, handleCloseMenu) => {
@@ -105,12 +97,12 @@ const Header = (props) => {
                   <Link
                     noMargin={true}
                     path={'/'}
-                    text={'Home'}
+                    text={'home'}
                     color="primary"
                   />
                 </MenuItem>
                 <MenuItem onClick={handleToggle}>
-                  <Typograpy>Audiovisual</Typograpy>
+                  <Typograpy>selection of art works</Typograpy>
                   <ListItemIcon>
                     <ExpandMoreIcon fontSize="small" color="secondary" />
                   </ListItemIcon>
@@ -133,7 +125,7 @@ const Header = (props) => {
                   </Grow>
                 )}
                 <MenuItem onClick={handleToggleCommunityWork}>
-                  <Typograpy>Community and Curatorial work</Typograpy>
+                  <Typograpy>community and curatorial work </Typograpy>
                   <ListItemIcon>
                     <ExpandMoreIcon fontSize="small" color="secondary" />
                   </ListItemIcon>
@@ -156,7 +148,7 @@ const Header = (props) => {
                   </Grow>
                 )}
                 <MenuItem onClick={handleToggleTexts}>
-                  <Typograpy>Text</Typograpy>
+                  <Typograpy>written</Typograpy>
                   <ListItemIcon>
                     <ExpandMoreIcon fontSize="small" color="secondary" />
                   </ListItemIcon>
@@ -178,8 +170,17 @@ const Header = (props) => {
                     </div>
                   </Grow>
                 )}
+                <MenuItem onClick={handleClose}>
+                  <Link
+                    path={'/projects/recordings'}
+                    text={'recordings'}
+                    color="primary"
+                    external={false}
+                    noMargin={true}
+                  />
+                </MenuItem>
                 <MenuItem onClick={handleToggleSocialMedia}>
-                  <Typograpy>Social media</Typograpy>
+                  <Typograpy>social media</Typograpy>
                   <ListItemIcon>
                     <ExpandMoreIcon fontSize="small" color="secondary" />
                   </ListItemIcon>
@@ -202,11 +203,20 @@ const Header = (props) => {
                     </div>
                   </Grow>
                 )}
-                <MenuItem onClick={handleClose}>Contact</MenuItem>
+                <MenuItem onClick={handleClose}>
+                  <Link
+                    path={'/contact'}
+                    text={'contact'}
+                    color="textSecondary"
+                    external={false}
+                    noMargin={true}
+                  />
+                </MenuItem>
               </div>
             );
           }}
-        />
+        /> */}
+        <MenuWithWorkItems />
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import Project from '../../../components/Project/Project';
 import { audiovisual } from '../../../components/Projects/ProjectsData';
 
 const Filamental = (props) => {
-  const project = audiovisual[1];
+  const project = audiovisual[2];
   return (
     <Layout>
       <Project {...project} />

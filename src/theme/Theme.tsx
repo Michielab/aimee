@@ -4,7 +4,18 @@ import green from '@material-ui/core/colors/green';
 
 const theme = createMuiTheme({
   typography: {
-    fontFamily: `Montserrat`,
+    fontFamily: [
+      'Roboto',
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Segoe UI"',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','),
     button: {
       textTransform: 'none',
     },

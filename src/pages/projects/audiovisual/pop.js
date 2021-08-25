@@ -5,7 +5,7 @@ import { audiovisual } from '../../../components/Projects/ProjectsData';
 import * as images from '../../../images/index';
 
 const Pop = (props) => {
-  const project = audiovisual[2];
+  const project = audiovisual[0];
   console.log('img', images);
   return (
     <Layout>
