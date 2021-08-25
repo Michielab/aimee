@@ -217,7 +217,7 @@ const Header = (props) => {
               />
             </Button>
           </div> */}
-          <Menu
+          {/* <Menu
             renderButton={(handleOpen, open, handleCloseMenu) => {
               return (
                 <Button
@@ -246,12 +246,13 @@ const Header = (props) => {
                       text={project.title}
                       color="primary"
                       external={true}
+                      noMargin={true}
                     />
                   </MenuItem>
                 );
               });
             }}
-          />
+          /> */}
           <div style={{ display: 'flex' }}>
             <Button classes={{ root: classes.recordingButton }}>
               <Link

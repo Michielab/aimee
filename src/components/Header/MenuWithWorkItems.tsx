@@ -74,7 +74,7 @@ const Header = (props) => {
 
   return (
     <Menu
-      elevation={0}
+      // elevation={0}
       handleCloseSubMenu={handleClose}
       renderButton={(handleOpen, open, handleCloseMenu) => {
         return isDesktop ? (
