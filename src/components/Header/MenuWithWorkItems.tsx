@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Header = (props) => {
   const classes = useStyles();
-  const { isDesktop = false } = props;
+  const { isDesktop = false, text } = props;
   const [openProjects, toggleOpenProjects] = React.useState(false);
   const [openTexts, toggleOpenTexts] = React.useState(false);
   const [openCommunityWork, toggleOpenCommunityWork] = React.useState(false);
@@ -90,7 +90,7 @@ const Header = (props) => {
               root: [classes.button, open ? classes.hovered : ''].join(' '),
             }}
           >
-            <Typograpy>work</Typograpy>
+            <Typograpy>{text}</Typograpy>
             <ListItemIcon className={classes.listIcon}>
               <ExpandMoreIcon fontSize="small" color="secondary" />
             </ListItemIcon>

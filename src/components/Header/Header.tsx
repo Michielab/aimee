@@ -98,7 +98,13 @@ const Header = (props) => {
           </Button>
         </div>
         <div className={classes.menuItemsWrapper}>
-          <MenuWithWorkItems isDesktop={true} />
+          <MenuWithWorkItems isDesktop={true} text="selection of art works" />
+          <MenuWithWorkItems
+            isDesktop={true}
+            text="community and curatorial work"
+          />
+          <MenuWithWorkItems isDesktop={true} text="written" />
+          <MenuWithWorkItems isDesktop={true} text="recording" />
           {/* <Menu
             setMenuOpen={setMenuOpen}
             renderButton={(handleOpen, open, handleCloseMenu) => {
