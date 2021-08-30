@@ -1,0 +1,2 @@
+(self.webpackChunkaimee=self.webpackChunkaimee||[]).push([[550],{698:function(e,n,t){"use strict";t.r(n);var a=t(7294),u=t(3591),r=t(5810),c=t(5764);n.default=function(){var e=c.Xh[0];return a.createElement(u.Z,null,a.createElement(r.Z,e))}}}]);
+//# sourceMappingURL=component---src-pages-projects-communityandcuratorial-ssssound-js-1e329c3cc024e36098f9.js.map

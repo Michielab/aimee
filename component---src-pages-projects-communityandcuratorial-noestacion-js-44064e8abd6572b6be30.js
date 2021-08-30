@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkaimee=self.webpackChunkaimee||[]).push([[166],{5149:function(e,n,t){t.r(n);var a=t(7294),u=t(9030),r=t(5810),c=t(5764);n.default=function(){var e=c.Xh[2];return a.createElement(u.Z,null,a.createElement(r.Z,e))}}}]);
+//# sourceMappingURL=component---src-pages-projects-communityandcuratorial-noestacion-js-44064e8abd6572b6be30.js.map

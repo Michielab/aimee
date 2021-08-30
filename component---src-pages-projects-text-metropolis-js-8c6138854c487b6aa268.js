@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkaimee=self.webpackChunkaimee||[]).push([[743],{7708:function(e,n,t){t.r(n);var u=t(7294),a=t(3591),r=t(5810),c=t(4916);n.default=function(){var e=c.uq[0];return u.createElement(a.Z,null,u.createElement(r.Z,e))}}}]);
+//# sourceMappingURL=component---src-pages-projects-text-metropolis-js-8c6138854c487b6aa268.js.map

@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkaimee=self.webpackChunkaimee||[]).push([[607],{9560:function(e,n,t){t.r(n);var u=t(7294),a=t(9030),r=t(5810),c=t(5764);n.default=function(){var e=c.uq[4];return u.createElement(a.Z,null,u.createElement(r.Z,e))}}}]);
+//# sourceMappingURL=component---src-pages-projects-text-acry-js-53eaf1e142ec8c240c72.js.map

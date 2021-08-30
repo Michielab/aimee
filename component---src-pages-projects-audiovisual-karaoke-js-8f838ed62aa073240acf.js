@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkaimee=self.webpackChunkaimee||[]).push([[751],{8600:function(e,n,t){t.r(n);var a=t(7294),u=t(3591),r=t(5810),c=t(4916);n.default=function(e){var n=c.iG[5];return a.createElement(u.Z,null,a.createElement(r.Z,n))}}}]);
+//# sourceMappingURL=component---src-pages-projects-audiovisual-karaoke-js-8f838ed62aa073240acf.js.map
